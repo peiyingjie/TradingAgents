@@ -8,10 +8,10 @@ requests so M2.x reasoning models put their <think> block into
 import os
 
 import pytest
-from langchain_core.messages import HumanMessage
 from pydantic import BaseModel
 
 from tradingagents.llm_clients.openai_client import MinimaxChatOpenAI
+from tradingagents.runtime.messages import HumanMessage
 
 
 def _client(model: str = "MiniMax-M2.7"):

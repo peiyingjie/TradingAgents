@@ -14,8 +14,6 @@ Two pieces verified:
 import os
 
 import pytest
-from langchain_core.messages import AIMessage, HumanMessage
-from langchain_core.prompt_values import ChatPromptValue
 from pydantic import BaseModel
 
 from tradingagents.llm_clients.openai_client import (
@@ -23,6 +21,8 @@ from tradingagents.llm_clients.openai_client import (
     NormalizedChatOpenAI,
     _input_to_messages,
 )
+from tradingagents.runtime.messages import AIMessage, HumanMessage
+from tradingagents.runtime.prompts import ChatPromptValue
 
 # ---------------------------------------------------------------------------
 # _input_to_messages — the helper that handles list / ChatPromptValue / other

@@ -1,9 +1,8 @@
 import re
 from typing import Any
 
-from langchain_anthropic import ChatAnthropic
-
 from .base_client import BaseLLMClient, normalize_content
+from .sdk_anthropic import ChatAnthropic
 from .validators import validate_model
 
 _PASSTHROUGH_KWARGS = (

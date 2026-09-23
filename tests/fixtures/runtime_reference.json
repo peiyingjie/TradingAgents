@@ -1,0 +1,1166 @@
+[
+  {
+    "prompts": [
+      "2f80129110afcf9d1dd0cb88e26f5eb41c600ba19c3322f2068855fb707d829f",
+      "2335a708dc0d87e1eec41d8499fdf9234dd0a266409937ad593d8d5417485aac",
+      "cf530900c82d1e8be3c0ecd38226eb9ca3a03b52b42f2ad9ab3f18bca77f85da",
+      "0da007ec5d11f4b85009330b7ff3a6729e277983e9b5045dc3180e559600020b",
+      "f930b1cb0abe35bee2aaca572e0b37482cc969bfeb0fdcb917091ad94e9c2742",
+      "7435ba3b3167fd3867e883f6ab3a7cd92c5cfecc6a9c8af9e1ed205fe7fb0006",
+      "279f8a7a3b92dbd8ccc9882a69930337357ca7371dd5b95c462a44916fb9e54c",
+      "89d977485ef6abc3660651ed0737c8c0a220b92258b80b2c16aa50966db114af",
+      "3e6217291ce4ee7c59dc0ef539e6a1b75eecc6f0230b5c7b29ce7ef6bd95e031",
+      "018dae8ed1b0cd7538c03faa975c261a89ddbfed48c778e10c1f45e3bb45c756",
+      "1d39faac474d553e63693f160c0e8bff1046a62453ab86da5ea4ed8fe62ad38d",
+      "81befc7f468709d4861461ee198a7272e554d2758aaaf8093cad40f1918d603b",
+      "077b122c116017bba2471906bd83be4152198b355e5745bc3997423b14cadc11",
+      "d38886492cd2ee93e7613859d8b14032cefd6eb8478db412feffc1b3fbcc3727",
+      "9e7736f4350532572dd76e5abaffe11c86fb910c34972b6ea0bfd0b75ff7a5fc",
+      "6c01cbea7e4258ead8be3daa51f2e81a77cd41566bd6cb4c617a64b511e4e4a0",
+      "77beec430dc4ea5e764641d10dfc1818ff8c0e58b73de8c3e870867fb5b4e093",
+      "47429104044e64131e393aaebffb8df330577444b06e31dc5d78dd7c000ea4b1",
+      "30ad093a79d9057f24c6c7e5efe3dd5229b5d1ce2cce1246cc45098fea033ffe",
+      "7f1770e8d591d849a7a93839972ffab8ab903e6453322d5111f0fb0282802f2e",
+      "71989887f0bcd2a67c40448b1cf4872615971fd0a15b91f6ef07734b0323c4d1",
+      "085ea8a7475a4cbaae78d86f00123ecf269999650475b01f8d992d0470a390bf",
+      "836e5c88e4507538b322e45ac4a24160c78c3b5f4562129e9764f1391ff16b6c"
+    ],
+    "bindings": [
+      [
+        "get_stock_data",
+        "get_indicators",
+        "get_verified_market_snapshot"
+      ],
+      [
+        "get_stock_data",
+        "get_indicators",
+        "get_verified_market_snapshot"
+      ],
+      [
+        "get_stock_data",
+        "get_indicators",
+        "get_verified_market_snapshot"
+      ],
+      [
+        "get_stock_data",
+        "get_indicators",
+        "get_verified_market_snapshot"
+      ],
+      [
+        "get_news",
+        "get_global_news",
+        "get_macro_indicators",
+        "get_prediction_markets"
+      ],
+      [
+        "get_news",
+        "get_global_news",
+        "get_macro_indicators",
+        "get_prediction_markets"
+      ],
+      [
+        "get_news",
+        "get_global_news",
+        "get_macro_indicators",
+        "get_prediction_markets"
+      ],
+      [
+        "get_news",
+        "get_global_news",
+        "get_macro_indicators",
+        "get_prediction_markets"
+      ],
+      [
+        "get_news",
+        "get_global_news",
+        "get_macro_indicators",
+        "get_prediction_markets"
+      ],
+      [
+        "get_fundamentals",
+        "get_balance_sheet",
+        "get_cashflow",
+        "get_income_statement"
+      ],
+      [
+        "get_fundamentals",
+        "get_balance_sheet",
+        "get_cashflow",
+        "get_income_statement"
+      ],
+      [
+        "get_fundamentals",
+        "get_balance_sheet",
+        "get_cashflow",
+        "get_income_statement"
+      ],
+      [
+        "get_fundamentals",
+        "get_balance_sheet",
+        "get_cashflow",
+        "get_income_statement"
+      ],
+      [
+        "get_fundamentals",
+        "get_balance_sheet",
+        "get_cashflow",
+        "get_income_statement"
+      ]
+    ],
+    "routes": [
+      [
+        "should_continue_market",
+        "tools_market"
+      ],
+      [
+        "should_continue_market",
+        "tools_market"
+      ],
+      [
+        "should_continue_market",
+        "tools_market"
+      ],
+      [
+        "should_continue_market",
+        "Msg Clear Market"
+      ],
+      [
+        "should_continue_social",
+        "Msg Clear Sentiment"
+      ],
+      [
+        "should_continue_news",
+        "tools_news"
+      ],
+      [
+        "should_continue_news",
+        "tools_news"
+      ],
+      [
+        "should_continue_news",
+        "tools_news"
+      ],
+      [
+        "should_continue_news",
+        "tools_news"
+      ],
+      [
+        "should_continue_news",
+        "Msg Clear News"
+      ],
+      [
+        "should_continue_fundamentals",
+        "tools_fundamentals"
+      ],
+      [
+        "should_continue_fundamentals",
+        "tools_fundamentals"
+      ],
+      [
+        "should_continue_fundamentals",
+        "tools_fundamentals"
+      ],
+      [
+        "should_continue_fundamentals",
+        "tools_fundamentals"
+      ],
+      [
+        "should_continue_fundamentals",
+        "Msg Clear Fundamentals"
+      ],
+      [
+        "should_continue_debate",
+        "Bear Researcher"
+      ],
+      [
+        "should_continue_debate",
+        "Research Manager"
+      ],
+      [
+        "should_continue_risk_analysis",
+        "Conservative Analyst"
+      ],
+      [
+        "should_continue_risk_analysis",
+        "Neutral Analyst"
+      ],
+      [
+        "should_continue_risk_analysis",
+        "Portfolio Manager"
+      ]
+    ],
+    "vendors": [
+      [
+        [
+          "get_stock_data",
+          "AAPL",
+          "2026-08-01",
+          "2026-08-14"
+        ],
+        {}
+      ],
+      [
+        [
+          "get_indicators",
+          "AAPL",
+          "rsi",
+          "2026-08-14",
+          30
+        ],
+        {}
+      ],
+      [
+        [
+          "AAPL",
+          "2026-08-14",
+          30
+        ],
+        {}
+      ],
+      [
+        [
+          "get_news",
+          "AAPL",
+          "2026-08-07",
+          "2026-08-14"
+        ],
+        {}
+      ],
+      [
+        [
+          "get_news",
+          "AAPL",
+          "2026-08-01",
+          "2026-08-14"
+        ],
+        {}
+      ],
+      [
+        [
+          "get_global_news",
+          "2026-08-14",
+          null,
+          null
+        ],
+        {}
+      ],
+      [
+        [
+          "get_macro_indicators",
+          "rsi",
+          "2026-08-14",
+          null
+        ],
+        {}
+      ],
+      [
+        [
+          "get_prediction_markets",
+          "Fed rate cut",
+          null,
+          "2026-08-14"
+        ],
+        {}
+      ],
+      [
+        [
+          "get_fundamentals",
+          "AAPL",
+          "2026-08-14"
+        ],
+        {}
+      ],
+      [
+        [
+          "get_balance_sheet",
+          "AAPL",
+          "quarterly",
+          "2026-08-14"
+        ],
+        {}
+      ],
+      [
+        [
+          "get_cashflow",
+          "AAPL",
+          "quarterly",
+          "2026-08-14"
+        ],
+        {}
+      ],
+      [
+        [
+          "get_income_statement",
+          "AAPL",
+          "quarterly",
+          "2026-08-14"
+        ],
+        {}
+      ]
+    ],
+    "states": [
+      "5e8c9a56d6fb0ea7c3c71779ba9b669b3441c574452b5d93c8e0e16067cf7c9a",
+      "dee4ca44c71524696b72dd6069ccf3ba12db20a1db7c10e9b04eeadc4b50038d",
+      "cc3a8a46ed3ea22d89038fe181453aa5c558f5d5aeba05cc6a13d0cae9065fa1",
+      "9746ce38573730e22ce0202c31f01a5e1c46b404f261f86726051b23ece59384",
+      "e17f88aa45a0a968a4d18432116a83f7afcc1318cf36bd623fdca4d143862dd6",
+      "8564a847165ec8f8c8ccad806eb533a384adac8d95a88b3214321a2f3815098a",
+      "1939d49e122151ad6263bb1af4cd5bcc2e59ee1613b250a74c152013c37ef815",
+      "c7c36e9d0eacf4c9b7471281bcc0fa08602f2b662562f15cfaffc84186becb60",
+      "e9318f95013a3910f63c8289fd9cc5e3bb43cb68a39226a41b1009fd38e3ad8b",
+      "0fdc05ee74cf98857d0d997882b1869e2467edbfdfdc28ecd2e3d6f8c0599033",
+      "199e20844f0320f4bd01d85b5f3fbd2f466b8c549dbd857006b0651ef7c5f87a",
+      "d78548b08c0717a7db2db9a48691190e6193c723d5af27d6a0779d1512021cab",
+      "684c96600b9c6ed8e2661e8e7a74f8e6a11e543a55cc130af451124decbd9052",
+      "b2f1470217c3469eedbd913d98d634ceb6439a0c65c7a485dd5164a880c71fb0",
+      "f1384347e6678cbf66847d2b713c8f33b3d77fd84e0ad3551d4f99aa23d00b2d",
+      "42280566e0025edcde814a373dbdafc912da50a58a8afe19ece61b404a3ac8f2",
+      "ea982c7a3cc8c971016543ab675af7df8a3d08e97e81b29a9f707e02ced47ff8",
+      "1a54b7a75fd4b7dd2bcc88c327e7cbdf9e542832d294cc73e7e6792a4789b353",
+      "084574a7c9fc969da2b7ba7a3739971e3fae6682b7b87c36f35453a1050ea9fa",
+      "8c4a923711b2963fa6399edb0b970309c604cb1f2c05b97735ad091040c4db88",
+      "c9076be1fad956353a952dcc79313153f792e52b7a889f2941f0373353200763",
+      "57c19dcaa3698ca6b9a73104e63352bffafad03b40ff095b72c44906fef0b301",
+      "ef682b7f01b39ab6825637a56aa52ad0a2c6cad760bf13070ab858154d45d9c5",
+      "8450663c1fcab3d703aeb69e4f448a990f1a161c42f56a3bbe817a9bbcd770b1",
+      "215abb8c45d228498b07a1743d8f2b4497e35111143ee494e44f52c26ed69218",
+      "2ee9fc1c5a2a491e4ec7689ebacb762251b6e0c22902d09e4280240b5c7b4ae6",
+      "52ef70520ce04c86b813dcedab2073eb2930e64288e1359c7ed2143d1fb247dc",
+      "5ab101ee6cea29e586e4117c1ba15bbee2072e008a594ec8e456190f91a2875a",
+      "8705f6aaf4aef070e8d83294bffbea2044016434206e13d5c96306837340dce6",
+      "72475d961fd98df7930addb6bf18f1f46e17ec606547965d644d9734384ffa89",
+      "ab54657aeec6232290ff1eaf9cfb52a6becd84742fbfd8941f4331dea5decf06",
+      "1a6f611195616f6722278802c0261ed1009ebd842f77de3cd51bad7c260a2a5d",
+      "848d0156ac08f222789a2018005e44cd5d02dab71894094ca33b7a32c947fb1a",
+      "264b48aac9b5e681e8358010d15aba7d8ad5d9ac3afa7004b9c7bfed8da27be2",
+      "f47eb6c731725f882eafb14d77dc060891d81f9a5419bf77963e9f66ca153726",
+      "debf890235b8762abb6d659011408a7619aaf266bb850c98dbf6dc975382ee1f",
+      "2061b3b135606952dbe652a3b6a8f88994785d1e8100281569c5b60c468eeb3e",
+      "10bacc02f1c0d5ab20f1036da657110b9bf240a3ccee5f2b6a6ae10f9fa3c0b4",
+      "0b1f4e3c88d83818454f9b986616f88ed13cbe71ed69ee83c2d53132f2c9fe64"
+    ],
+    "final": {
+      "messages": [
+        {
+          "type": "human",
+          "content": "Proceed with your assigned analysis for this workflow. AAPL / Apple / USD The analysis date is 2026-08-14."
+        },
+        {
+          "type": "ai",
+          "content": "**Rating**: Buy\nEvidence 19",
+          "tool_calls": []
+        }
+      ],
+      "company_of_interest": "AAPL",
+      "asset_type": "stock",
+      "instrument_context": "AAPL / Apple / USD",
+      "trade_date": "2026-08-14",
+      "sender": "Trader",
+      "market_report": "**Rating**: Buy\nEvidence 4",
+      "sentiment_report": "**Rating**: Buy\nEvidence 5",
+      "news_report": "**Rating**: Buy\nEvidence 10",
+      "fundamentals_report": "**Rating**: Buy\nEvidence 15",
+      "investment_debate_state": {
+        "judge_decision": "**Rating**: Buy\nEvidence 18",
+        "history": "\nBull Analyst: **Rating**: Buy\nEvidence 16\nBear Analyst: **Rating**: Buy\nEvidence 17",
+        "bear_history": "\nBear Analyst: **Rating**: Buy\nEvidence 17",
+        "bull_history": "\nBull Analyst: **Rating**: Buy\nEvidence 16",
+        "current_response": "**Rating**: Buy\nEvidence 18",
+        "count": 2
+      },
+      "investment_plan": "**Rating**: Buy\nEvidence 18",
+      "trader_investment_plan": "**Rating**: Buy\nEvidence 19",
+      "risk_debate_state": {
+        "judge_decision": "**Rating**: Buy\nEvidence 23",
+        "history": "\nAggressive Analyst: **Rating**: Buy\nEvidence 20\nConservative Analyst: **Rating**: Buy\nEvidence 21\nNeutral Analyst: **Rating**: Buy\nEvidence 22",
+        "aggressive_history": "\nAggressive Analyst: **Rating**: Buy\nEvidence 20",
+        "conservative_history": "\nConservative Analyst: **Rating**: Buy\nEvidence 21",
+        "neutral_history": "\nNeutral Analyst: **Rating**: Buy\nEvidence 22",
+        "latest_speaker": "Judge",
+        "current_aggressive_response": "Aggressive Analyst: **Rating**: Buy\nEvidence 20",
+        "current_conservative_response": "Conservative Analyst: **Rating**: Buy\nEvidence 21",
+        "current_neutral_response": "Neutral Analyst: **Rating**: Buy\nEvidence 22",
+        "count": 3
+      },
+      "final_trade_decision": "**Rating**: Buy\nEvidence 23",
+      "past_context": "",
+      "portfolio_context": ""
+    },
+    "nodes": [
+      "Market Analyst",
+      "tools_market",
+      "Market Analyst",
+      "tools_market",
+      "Market Analyst",
+      "tools_market",
+      "Market Analyst",
+      "Msg Clear Market",
+      "Sentiment Analyst",
+      "Msg Clear Sentiment",
+      "News Analyst",
+      "tools_news",
+      "News Analyst",
+      "tools_news",
+      "News Analyst",
+      "tools_news",
+      "News Analyst",
+      "tools_news",
+      "News Analyst",
+      "Msg Clear News",
+      "Fundamentals Analyst",
+      "tools_fundamentals",
+      "Fundamentals Analyst",
+      "tools_fundamentals",
+      "Fundamentals Analyst",
+      "tools_fundamentals",
+      "Fundamentals Analyst",
+      "tools_fundamentals",
+      "Fundamentals Analyst",
+      "Msg Clear Fundamentals",
+      "Bull Researcher",
+      "Bear Researcher",
+      "Research Manager",
+      "Trader",
+      "Aggressive Analyst",
+      "Conservative Analyst",
+      "Neutral Analyst",
+      "Portfolio Manager"
+    ]
+  },
+  {
+    "prompts": [
+      "4f6bb2a3b435208ceb06035ba7343ccad6d969c08d9801b5fbc196ed9a6b15e9",
+      "0904ba49fa8b33d016f2d2e5bd5a0f375a132246835d09f78f2eda75b7252f4b",
+      "d3081a362ac2f70fc77a9e4e60f168357cf8c0922d1240d684bea24deb37c7f8",
+      "f63a6711192a69bd54059551aa91ab3c42282c2c7bf3378e2037bc95922e3151",
+      "3a29249f038b2ada75fb880fafa76cef63c2e5d6192ed41c12d182fc9ee4207a",
+      "7435ba3b3167fd3867e883f6ab3a7cd92c5cfecc6a9c8af9e1ed205fe7fb0006",
+      "279f8a7a3b92dbd8ccc9882a69930337357ca7371dd5b95c462a44916fb9e54c",
+      "89d977485ef6abc3660651ed0737c8c0a220b92258b80b2c16aa50966db114af",
+      "3e6217291ce4ee7c59dc0ef539e6a1b75eecc6f0230b5c7b29ce7ef6bd95e031",
+      "018dae8ed1b0cd7538c03faa975c261a89ddbfed48c778e10c1f45e3bb45c756",
+      "ee7df376f7b19c9795d0cd13ec656aede42b7343e82ec5dd6bd039dd0f239d89",
+      "c69e9be646d98ecce3e1f484d860608d5c1c202013c3389c9e7cbaa1c657b823",
+      "aee7c6fa73769b7e81f7d903535c3a02886eaa79a5a2819c2c8e8c24589880ae",
+      "1a6f9be2575576fe97ae189ebf4ac8c3867cf779692ee67df37430ec0211b975",
+      "795e701a131c955b677bc9436f6ed52208cb63cbcec5ce08b0909a7486b57c58",
+      "6c7b22507db9a812efb073be5cea1a5cfe0041ea5ff72fb3367102aee5740322",
+      "d1cb7b34611523b61b1e20fd212410aa4485d136f6e3ced99dad66b2b6be080b",
+      "f6807c56b82b072a39935e352eee9421299d79b8f5f6ca587285a9f58a295125",
+      "8002f276541e9240ed954b83e2c2074f2454dfcc7b8c6f7ba00b04a4da982a40",
+      "79739dea825cb3188f2645be8fb645661bcb9c6c6e689e1942b1420dc740d8dd",
+      "63a7cf6bba2f2f5ed742ae963ded2855dec026b6a460c0c7a09d27aa2e1631f2",
+      "f5a2e97ea46dc1364e044bc1547be9cdc0f04d68ded10ca248dbd9f7c639fada",
+      "75f1ccd4635807bf859db99a956967012eeb9f4faeba89b5a5e8c6be90f4d8fe",
+      "8607aa60de4037a8cbde8e1adce110a3536c2b1c8d9849ea9919c48ddc574f39",
+      "b87b26d1b8eac5543b1372f889d4fca9c59d5b52bf0117c10a89be34efabf39b",
+      "d0d8964b7f30a0a5346870be73ecbefe69e36e472e8949c778e8eb7f47c842d9",
+      "61fdb4101e75a32f9b54ac55b992ac1d5bdf27a26ac05b2fe48cee82d02de1ce"
+    ],
+    "bindings": [
+      [
+        "get_fundamentals",
+        "get_balance_sheet",
+        "get_cashflow",
+        "get_income_statement"
+      ],
+      [
+        "get_fundamentals",
+        "get_balance_sheet",
+        "get_cashflow",
+        "get_income_statement"
+      ],
+      [
+        "get_fundamentals",
+        "get_balance_sheet",
+        "get_cashflow",
+        "get_income_statement"
+      ],
+      [
+        "get_fundamentals",
+        "get_balance_sheet",
+        "get_cashflow",
+        "get_income_statement"
+      ],
+      [
+        "get_fundamentals",
+        "get_balance_sheet",
+        "get_cashflow",
+        "get_income_statement"
+      ],
+      [
+        "get_news",
+        "get_global_news",
+        "get_macro_indicators",
+        "get_prediction_markets"
+      ],
+      [
+        "get_news",
+        "get_global_news",
+        "get_macro_indicators",
+        "get_prediction_markets"
+      ],
+      [
+        "get_news",
+        "get_global_news",
+        "get_macro_indicators",
+        "get_prediction_markets"
+      ],
+      [
+        "get_news",
+        "get_global_news",
+        "get_macro_indicators",
+        "get_prediction_markets"
+      ],
+      [
+        "get_news",
+        "get_global_news",
+        "get_macro_indicators",
+        "get_prediction_markets"
+      ],
+      [
+        "get_stock_data",
+        "get_indicators",
+        "get_verified_market_snapshot"
+      ],
+      [
+        "get_stock_data",
+        "get_indicators",
+        "get_verified_market_snapshot"
+      ],
+      [
+        "get_stock_data",
+        "get_indicators",
+        "get_verified_market_snapshot"
+      ],
+      [
+        "get_stock_data",
+        "get_indicators",
+        "get_verified_market_snapshot"
+      ]
+    ],
+    "routes": [
+      [
+        "should_continue_fundamentals",
+        "tools_fundamentals"
+      ],
+      [
+        "should_continue_fundamentals",
+        "tools_fundamentals"
+      ],
+      [
+        "should_continue_fundamentals",
+        "tools_fundamentals"
+      ],
+      [
+        "should_continue_fundamentals",
+        "tools_fundamentals"
+      ],
+      [
+        "should_continue_fundamentals",
+        "Msg Clear Fundamentals"
+      ],
+      [
+        "should_continue_news",
+        "tools_news"
+      ],
+      [
+        "should_continue_news",
+        "tools_news"
+      ],
+      [
+        "should_continue_news",
+        "tools_news"
+      ],
+      [
+        "should_continue_news",
+        "tools_news"
+      ],
+      [
+        "should_continue_news",
+        "Msg Clear News"
+      ],
+      [
+        "should_continue_market",
+        "tools_market"
+      ],
+      [
+        "should_continue_market",
+        "tools_market"
+      ],
+      [
+        "should_continue_market",
+        "tools_market"
+      ],
+      [
+        "should_continue_market",
+        "Msg Clear Market"
+      ],
+      [
+        "should_continue_debate",
+        "Bear Researcher"
+      ],
+      [
+        "should_continue_debate",
+        "Bull Researcher"
+      ],
+      [
+        "should_continue_debate",
+        "Bear Researcher"
+      ],
+      [
+        "should_continue_debate",
+        "Research Manager"
+      ],
+      [
+        "should_continue_risk_analysis",
+        "Conservative Analyst"
+      ],
+      [
+        "should_continue_risk_analysis",
+        "Neutral Analyst"
+      ],
+      [
+        "should_continue_risk_analysis",
+        "Aggressive Analyst"
+      ],
+      [
+        "should_continue_risk_analysis",
+        "Conservative Analyst"
+      ],
+      [
+        "should_continue_risk_analysis",
+        "Neutral Analyst"
+      ],
+      [
+        "should_continue_risk_analysis",
+        "Portfolio Manager"
+      ]
+    ],
+    "vendors": [
+      [
+        [
+          "get_fundamentals",
+          "AAPL",
+          "2026-08-14"
+        ],
+        {}
+      ],
+      [
+        [
+          "get_balance_sheet",
+          "AAPL",
+          "quarterly",
+          "2026-08-14"
+        ],
+        {}
+      ],
+      [
+        [
+          "get_cashflow",
+          "AAPL",
+          "quarterly",
+          "2026-08-14"
+        ],
+        {}
+      ],
+      [
+        [
+          "get_income_statement",
+          "AAPL",
+          "quarterly",
+          "2026-08-14"
+        ],
+        {}
+      ],
+      [
+        [
+          "get_news",
+          "AAPL",
+          "2026-08-01",
+          "2026-08-14"
+        ],
+        {}
+      ],
+      [
+        [
+          "get_global_news",
+          "2026-08-14",
+          null,
+          null
+        ],
+        {}
+      ],
+      [
+        [
+          "get_macro_indicators",
+          "rsi",
+          "2026-08-14",
+          null
+        ],
+        {}
+      ],
+      [
+        [
+          "get_prediction_markets",
+          "Fed rate cut",
+          null,
+          "2026-08-14"
+        ],
+        {}
+      ],
+      [
+        [
+          "get_stock_data",
+          "AAPL",
+          "2026-08-01",
+          "2026-08-14"
+        ],
+        {}
+      ],
+      [
+        [
+          "get_indicators",
+          "AAPL",
+          "rsi",
+          "2026-08-14",
+          30
+        ],
+        {}
+      ],
+      [
+        [
+          "AAPL",
+          "2026-08-14",
+          30
+        ],
+        {}
+      ]
+    ],
+    "states": [
+      "5e8c9a56d6fb0ea7c3c71779ba9b669b3441c574452b5d93c8e0e16067cf7c9a",
+      "392e538ad25aa04580d9e422aaa54c0e5519143891dc57484e82bda05e1b5ca4",
+      "9522b09ad37c771062a1403104a12798f83bc545867753df0b5444db37f4ee7f",
+      "ee79209c9a894c4bc59ac2909dd76cd8571dc491151fa2e64266f4db1aebc091",
+      "40572dfdbc9216b115be58059edc2674da78a184a7d0863eecad189a1af7e537",
+      "55c84bc7d84095ce8076723caffb3d77b4d6103e56ebd16e65bc0769954cc760",
+      "407da5e4b2e9def850ecb2b8b3cc0db3f41803f1fc3231b8983a1d1e9318e13a",
+      "b50379a7048c15eee27a0dba13e5868192ae51bb764832b10452d053ab030abf",
+      "1e547270998df8d28af5b5708d3e47d69a1fe4752d733545a598e196f3eb96fb",
+      "7f5b68fa9a382a33c2d811d7b793014ad70655345373ce926e6be373afb94d6d",
+      "f2877ba37f20ced46fc61d8e8b1a6555dd28792ae3058e6cef1bbbc799f45946",
+      "7c056b14342ff3605abc19eeb1b8cab8a8fea5ebd3c1b38250dd04bf4bb8e942",
+      "2897dae3706ea3839f5fc7a5ac950d0d1d2e03352d10a1a377ffa5651a9fc5b5",
+      "e42bde2f285223e156c996474ac10afdc551ea15d7b40ef8281535f1fed05dc4",
+      "064befe3fa3a2de00b82afdd290482dd700ffec17811a43a7d3401980f78d5cd",
+      "f0773e1cc4d9e8c870a39712dfe4b33fe996f459f8843df7a90474f61771cb27",
+      "f9a662acd75b4cc085b0a9a40170e412c8b8dc6d35622e56d786afeb4c9b164d",
+      "bb87041c5f475bd052d091be761dfb56ab3636ceb7e19ebb4f392dc8afa535b5",
+      "e6e1107e1aa9f629e22dfcc6ab3a114f633f88d6f447b90ab6cfb8d8da5e77e8",
+      "851fa5115098aa9433e8643eefa7812215e614df5df44ded506211623a38b67a",
+      "12b53c43e640afc3a06a4df6b56ab143d8771113a0133ceb4e29980f4c7a5757",
+      "a72a95048a85c78b99ac1dc932c1c5339036d87da51ba9893d2bb5a9095f6808",
+      "4aeaeda3756f0e469316f5743aeaa4a1df4aae00fc1db4d8e0e23c82036b30e8",
+      "98760efd22d7c45b86b9e670d12403ea2d477d16113c64ea3f6c3137f6adfdab",
+      "53f3d8e28a59ae6020659b8322c9538a4ea3fab911d6a5d48fe564210a79ac23",
+      "c219e97632d7e867206ca87b66147316a6e71540a61a771cf569215eca5a6f4d",
+      "de2fd855c752c6dc794521035952974cbfc105816915ac09855fb4d53154be4a",
+      "ad6425c5c6a6f8d482c7fcf157da67dd99f3b6750e6434e8f89d58d18b7cf590",
+      "8747779d1b96cb8e3fc98a3a70386ef7075d05e1aa205f131d732413c25b6ede",
+      "19928d6894fd7543689e40e24930464be2a2352baa623e54df18f4a247833bd2",
+      "4dd63fe7ed5e9a89091fef69b3c3bd3530b42245e7ca17c40015dcb59577edc8",
+      "1f906093817effe8798feb47389ae1e5893872dcc25ff5e5c68341698a651e9f",
+      "5edf85f0122b27fe28d2be6eb5a0658e8acf841568edd6749cd96679b8055b2c",
+      "e646f40ab1da3ce3d6842177adab19793fde395b5b5d2ef6224e4effa84f8ed8",
+      "d6cebcdfb3b78468be241f390f2b2a74b495bbf80d0d1703601555197a7325c0",
+      "3047bd9b3fb401dbc41e71083c8cab940973aa92c527faa3d7ed0ecd6d186a58",
+      "c8e438c32aa488fc236487968599f0648e1f3b07d21e3c8baf856a104e07aad8",
+      "f4b3cbcf64b7f81a4d227fec105c410b737ad6f0149287d06849583e65a49b77",
+      "1e7a2de70fa74d2930add774919670c60d3bcbf0035d572f957e90e03968d4b5",
+      "5680f29f12df4fe371ee07b83af26d9125e673942bb398af2ae22ad01c5ca8a1",
+      "338d4078aad29754bc705d8bd4865bba32c5cc00d58639a66b6aa20b509d9726",
+      "fcf51f88510ca2223f3a36e3f2c7824ed57a53d8e8c5a0fbb898998dff0c4424"
+    ],
+    "final": {
+      "messages": [
+        {
+          "type": "human",
+          "content": "Proceed with your assigned analysis for this workflow. AAPL / Apple / USD The analysis date is 2026-08-14."
+        },
+        {
+          "type": "ai",
+          "content": "**Rating**: Buy\nEvidence 20",
+          "tool_calls": []
+        }
+      ],
+      "company_of_interest": "AAPL",
+      "asset_type": "stock",
+      "instrument_context": "AAPL / Apple / USD",
+      "trade_date": "2026-08-14",
+      "sender": "Trader",
+      "market_report": "**Rating**: Buy\nEvidence 14",
+      "sentiment_report": "",
+      "news_report": "**Rating**: Buy\nEvidence 10",
+      "fundamentals_report": "**Rating**: Buy\nEvidence 5",
+      "investment_debate_state": {
+        "judge_decision": "**Rating**: Buy\nEvidence 19",
+        "history": "\nBull Analyst: **Rating**: Buy\nEvidence 15\nBear Analyst: **Rating**: Buy\nEvidence 16\nBull Analyst: **Rating**: Buy\nEvidence 17\nBear Analyst: **Rating**: Buy\nEvidence 18",
+        "bear_history": "\nBear Analyst: **Rating**: Buy\nEvidence 16\nBear Analyst: **Rating**: Buy\nEvidence 18",
+        "bull_history": "\nBull Analyst: **Rating**: Buy\nEvidence 15\nBull Analyst: **Rating**: Buy\nEvidence 17",
+        "current_response": "**Rating**: Buy\nEvidence 19",
+        "count": 4
+      },
+      "investment_plan": "**Rating**: Buy\nEvidence 19",
+      "trader_investment_plan": "**Rating**: Buy\nEvidence 20",
+      "risk_debate_state": {
+        "judge_decision": "**Rating**: Buy\nEvidence 27",
+        "history": "\nAggressive Analyst: **Rating**: Buy\nEvidence 21\nConservative Analyst: **Rating**: Buy\nEvidence 22\nNeutral Analyst: **Rating**: Buy\nEvidence 23\nAggressive Analyst: **Rating**: Buy\nEvidence 24\nConservative Analyst: **Rating**: Buy\nEvidence 25\nNeutral Analyst: **Rating**: Buy\nEvidence 26",
+        "aggressive_history": "\nAggressive Analyst: **Rating**: Buy\nEvidence 21\nAggressive Analyst: **Rating**: Buy\nEvidence 24",
+        "conservative_history": "\nConservative Analyst: **Rating**: Buy\nEvidence 22\nConservative Analyst: **Rating**: Buy\nEvidence 25",
+        "neutral_history": "\nNeutral Analyst: **Rating**: Buy\nEvidence 23\nNeutral Analyst: **Rating**: Buy\nEvidence 26",
+        "latest_speaker": "Judge",
+        "current_aggressive_response": "Aggressive Analyst: **Rating**: Buy\nEvidence 24",
+        "current_conservative_response": "Conservative Analyst: **Rating**: Buy\nEvidence 25",
+        "current_neutral_response": "Neutral Analyst: **Rating**: Buy\nEvidence 26",
+        "count": 6
+      },
+      "final_trade_decision": "**Rating**: Buy\nEvidence 27",
+      "past_context": "",
+      "portfolio_context": ""
+    },
+    "nodes": [
+      "Fundamentals Analyst",
+      "tools_fundamentals",
+      "Fundamentals Analyst",
+      "tools_fundamentals",
+      "Fundamentals Analyst",
+      "tools_fundamentals",
+      "Fundamentals Analyst",
+      "tools_fundamentals",
+      "Fundamentals Analyst",
+      "Msg Clear Fundamentals",
+      "News Analyst",
+      "tools_news",
+      "News Analyst",
+      "tools_news",
+      "News Analyst",
+      "tools_news",
+      "News Analyst",
+      "tools_news",
+      "News Analyst",
+      "Msg Clear News",
+      "Market Analyst",
+      "tools_market",
+      "Market Analyst",
+      "tools_market",
+      "Market Analyst",
+      "tools_market",
+      "Market Analyst",
+      "Msg Clear Market",
+      "Bull Researcher",
+      "Bear Researcher",
+      "Bull Researcher",
+      "Bear Researcher",
+      "Research Manager",
+      "Trader",
+      "Aggressive Analyst",
+      "Conservative Analyst",
+      "Neutral Analyst",
+      "Aggressive Analyst",
+      "Conservative Analyst",
+      "Neutral Analyst",
+      "Portfolio Manager"
+    ]
+  },
+  {
+    "prompts": [
+      "b137811d1eb157ec78ef62fea606881a207a420f8d695d91dd1fc679933a39c9",
+      "73d49ae0fcc529f127f6d4ef7915da3b1c90fd2d006e4903f8bf915060c965e9",
+      "09eef639cda16bdc5256b9ee618d35f41e6b78e11f836fb12e46c15ff47109a7",
+      "be817bfc4e5cd77cf5f3816906d6e8bdef9b2cae6a145f34fc437f65a73a7c94",
+      "0815429115beb3be24ee7e8370487cc01248ab9d0124ad1eef63be32ec937cc2",
+      "5972c758a905872ac8001df8c8243054341cc60308b67d85ba13ba24ef39b6b4",
+      "b975b215389721c4fd8399b9798818c661c599c5f6d6990011a1f82256913618",
+      "6c0ee1aa29ae6c1b235fdd39cf43039a1c6f6a70d9a6dadd29070bcafcc2ac89",
+      "f0680120435f928ac8503e6109a71e71facd4a501e110d73b699a1210d759bb6"
+    ],
+    "bindings": [],
+    "routes": [
+      [
+        "should_continue_social",
+        "Msg Clear Sentiment"
+      ],
+      [
+        "should_continue_debate",
+        "Bear Researcher"
+      ],
+      [
+        "should_continue_debate",
+        "Research Manager"
+      ],
+      [
+        "should_continue_risk_analysis",
+        "Conservative Analyst"
+      ],
+      [
+        "should_continue_risk_analysis",
+        "Neutral Analyst"
+      ],
+      [
+        "should_continue_risk_analysis",
+        "Portfolio Manager"
+      ]
+    ],
+    "vendors": [
+      [
+        [
+          "get_news",
+          "AAPL",
+          "2026-08-07",
+          "2026-08-14"
+        ],
+        {}
+      ]
+    ],
+    "states": [
+      "5e8c9a56d6fb0ea7c3c71779ba9b669b3441c574452b5d93c8e0e16067cf7c9a",
+      "04509378005621f95e01644bbd90203b3b8988fe9987fcc97864df91d5fb7eb0",
+      "bfca20a32bce7e156aaadd013c4a47724ce39d797f83bd18d729e41c703a6c8d",
+      "74166383f8452d37f98bbd27a94a139495e0336693903cb4733e7a421f8da51c",
+      "46aada2229bcfd943bad23c7540fbc45b5190f6ae3411efc7bb9783929973f24",
+      "a9bf7079476df4b9c5060ffe3d977afe9bd0d8debdd52b5ab517ed6ae4d04c21",
+      "dc28cb5f7aa1436005b448eaa2a67d1c38a926998b1ce3141f29ffec5288efcc",
+      "a27c4bc2f1854d9206ba41dd36cfa277f09deeb5ff175e33b6ab9d9bfb2a9217",
+      "edfe96ca5ae55802ccb2a37c4648ab7f140be3eea7d3e0dc68a5a4764f58b982",
+      "32675248112ae1958f95b2e94af3cff7ab97b658779405a1d59dd2c1ea634b64",
+      "17dcb9efc1366c1723313457e5936a5e93843290df8cd903d7e83b3370c95171"
+    ],
+    "final": {
+      "messages": [
+        {
+          "type": "human",
+          "content": "Proceed with your assigned analysis for this workflow. AAPL / Apple / USD The analysis date is 2026-08-14."
+        },
+        {
+          "type": "ai",
+          "content": "**Rating**: Buy\nEvidence 5",
+          "tool_calls": []
+        }
+      ],
+      "company_of_interest": "AAPL",
+      "asset_type": "stock",
+      "instrument_context": "AAPL / Apple / USD",
+      "trade_date": "2026-08-14",
+      "sender": "Trader",
+      "market_report": "",
+      "sentiment_report": "**Rating**: Buy\nEvidence 1",
+      "news_report": "",
+      "fundamentals_report": "",
+      "investment_debate_state": {
+        "judge_decision": "**Rating**: Buy\nEvidence 4",
+        "history": "\nBull Analyst: **Rating**: Buy\nEvidence 2\nBear Analyst: **Rating**: Buy\nEvidence 3",
+        "bear_history": "\nBear Analyst: **Rating**: Buy\nEvidence 3",
+        "bull_history": "\nBull Analyst: **Rating**: Buy\nEvidence 2",
+        "current_response": "**Rating**: Buy\nEvidence 4",
+        "count": 2
+      },
+      "investment_plan": "**Rating**: Buy\nEvidence 4",
+      "trader_investment_plan": "**Rating**: Buy\nEvidence 5",
+      "risk_debate_state": {
+        "judge_decision": "**Rating**: Buy\nEvidence 9",
+        "history": "\nAggressive Analyst: **Rating**: Buy\nEvidence 6\nConservative Analyst: **Rating**: Buy\nEvidence 7\nNeutral Analyst: **Rating**: Buy\nEvidence 8",
+        "aggressive_history": "\nAggressive Analyst: **Rating**: Buy\nEvidence 6",
+        "conservative_history": "\nConservative Analyst: **Rating**: Buy\nEvidence 7",
+        "neutral_history": "\nNeutral Analyst: **Rating**: Buy\nEvidence 8",
+        "latest_speaker": "Judge",
+        "current_aggressive_response": "Aggressive Analyst: **Rating**: Buy\nEvidence 6",
+        "current_conservative_response": "Conservative Analyst: **Rating**: Buy\nEvidence 7",
+        "current_neutral_response": "Neutral Analyst: **Rating**: Buy\nEvidence 8",
+        "count": 3
+      },
+      "final_trade_decision": "**Rating**: Buy\nEvidence 9",
+      "past_context": "",
+      "portfolio_context": ""
+    },
+    "nodes": [
+      "Sentiment Analyst",
+      "Msg Clear Sentiment",
+      "Bull Researcher",
+      "Bear Researcher",
+      "Research Manager",
+      "Trader",
+      "Aggressive Analyst",
+      "Conservative Analyst",
+      "Neutral Analyst",
+      "Portfolio Manager"
+    ]
+  },
+  {
+    "prompts": [
+      "2f80129110afcf9d1dd0cb88e26f5eb41c600ba19c3322f2068855fb707d829f",
+      "2335a708dc0d87e1eec41d8499fdf9234dd0a266409937ad593d8d5417485aac",
+      "cf530900c82d1e8be3c0ecd38226eb9ca3a03b52b42f2ad9ab3f18bca77f85da",
+      "0da007ec5d11f4b85009330b7ff3a6729e277983e9b5045dc3180e559600020b",
+      "49774648961527fe87e55c79b22840a60509e5c60ed978ddf698b92e5950a25f",
+      "8d70298c585763b37f3c804d4c2357cfa161edf12a173d32921b7c2bfa82a0ad",
+      "f7c28a6ed8b787201ed9143e58191c592a1afbec43b9503c6e0520128b1f819f",
+      "bb237b6a868b3b908ac1d97f3f6064587b5674387f9fe82fc207ed478969ea90",
+      "f2d29e171c4b445907c01621d595ed61041f983a8bc61f70d1ac3a754bd42f4c"
+    ],
+    "bindings": [
+      [
+        "get_stock_data",
+        "get_indicators",
+        "get_verified_market_snapshot"
+      ],
+      [
+        "get_stock_data",
+        "get_indicators",
+        "get_verified_market_snapshot"
+      ],
+      [
+        "get_stock_data",
+        "get_indicators",
+        "get_verified_market_snapshot"
+      ],
+      [
+        "get_stock_data",
+        "get_indicators",
+        "get_verified_market_snapshot"
+      ]
+    ],
+    "routes": [
+      [
+        "should_continue_market",
+        "tools_market"
+      ],
+      [
+        "should_continue_market",
+        "tools_market"
+      ],
+      [
+        "should_continue_market",
+        "tools_market"
+      ],
+      [
+        "should_continue_market",
+        "Msg Clear Market"
+      ],
+      [
+        "should_continue_debate",
+        "Research Manager"
+      ],
+      [
+        "should_continue_risk_analysis",
+        "Portfolio Manager"
+      ]
+    ],
+    "vendors": [
+      [
+        [
+          "get_stock_data",
+          "AAPL",
+          "2026-08-01",
+          "2026-08-14"
+        ],
+        {}
+      ],
+      [
+        [
+          "get_indicators",
+          "AAPL",
+          "rsi",
+          "2026-08-14",
+          30
+        ],
+        {}
+      ],
+      [
+        [
+          "AAPL",
+          "2026-08-14",
+          30
+        ],
+        {}
+      ]
+    ],
+    "states": [
+      "5e8c9a56d6fb0ea7c3c71779ba9b669b3441c574452b5d93c8e0e16067cf7c9a",
+      "dee4ca44c71524696b72dd6069ccf3ba12db20a1db7c10e9b04eeadc4b50038d",
+      "cc3a8a46ed3ea22d89038fe181453aa5c558f5d5aeba05cc6a13d0cae9065fa1",
+      "9746ce38573730e22ce0202c31f01a5e1c46b404f261f86726051b23ece59384",
+      "e17f88aa45a0a968a4d18432116a83f7afcc1318cf36bd623fdca4d143862dd6",
+      "8564a847165ec8f8c8ccad806eb533a384adac8d95a88b3214321a2f3815098a",
+      "1939d49e122151ad6263bb1af4cd5bcc2e59ee1613b250a74c152013c37ef815",
+      "c7c36e9d0eacf4c9b7471281bcc0fa08602f2b662562f15cfaffc84186becb60",
+      "e9318f95013a3910f63c8289fd9cc5e3bb43cb68a39226a41b1009fd38e3ad8b",
+      "f82d38ed2bf823e7194766716fe85d8f229d271de2751437cd6186df41d1a715",
+      "8777f41c4ce01cc7f5618b929764bec8b50b03e4675382047f228cb71bca9e12",
+      "31b7e82a8dd9a2e512a23c1028d4b8aa67308e0e3f749b5ad2a937b6fd89b5a4",
+      "485604ab49619d5d943de73b9697f210738fa879ed9e52c016139a6edaf2034a",
+      "56ba3071ac359298debcb760e602bec61debc1d50b957643342aba95a3744fe4"
+    ],
+    "final": {
+      "messages": [
+        {
+          "type": "human",
+          "content": "Proceed with your assigned analysis for this workflow. AAPL / Apple / USD The analysis date is 2026-08-14."
+        },
+        {
+          "type": "ai",
+          "content": "**Rating**: Buy\nEvidence 7",
+          "tool_calls": []
+        }
+      ],
+      "company_of_interest": "AAPL",
+      "asset_type": "stock",
+      "instrument_context": "AAPL / Apple / USD",
+      "trade_date": "2026-08-14",
+      "sender": "Trader",
+      "market_report": "**Rating**: Buy\nEvidence 4",
+      "sentiment_report": "",
+      "news_report": "",
+      "fundamentals_report": "",
+      "investment_debate_state": {
+        "judge_decision": "**Rating**: Buy\nEvidence 6",
+        "history": "\nBull Analyst: **Rating**: Buy\nEvidence 5",
+        "bear_history": "",
+        "bull_history": "\nBull Analyst: **Rating**: Buy\nEvidence 5",
+        "current_response": "**Rating**: Buy\nEvidence 6",
+        "count": 1
+      },
+      "investment_plan": "**Rating**: Buy\nEvidence 6",
+      "trader_investment_plan": "**Rating**: Buy\nEvidence 7",
+      "risk_debate_state": {
+        "judge_decision": "**Rating**: Buy\nEvidence 9",
+        "history": "\nAggressive Analyst: **Rating**: Buy\nEvidence 8",
+        "aggressive_history": "\nAggressive Analyst: **Rating**: Buy\nEvidence 8",
+        "conservative_history": "",
+        "neutral_history": "",
+        "latest_speaker": "Judge",
+        "current_aggressive_response": "Aggressive Analyst: **Rating**: Buy\nEvidence 8",
+        "current_conservative_response": "",
+        "current_neutral_response": "",
+        "count": 1
+      },
+      "final_trade_decision": "**Rating**: Buy\nEvidence 9",
+      "past_context": "",
+      "portfolio_context": ""
+    },
+    "nodes": [
+      "Market Analyst",
+      "tools_market",
+      "Market Analyst",
+      "tools_market",
+      "Market Analyst",
+      "tools_market",
+      "Market Analyst",
+      "Msg Clear Market",
+      "Bull Researcher",
+      "Research Manager",
+      "Trader",
+      "Aggressive Analyst",
+      "Portfolio Manager"
+    ]
+  }
+]

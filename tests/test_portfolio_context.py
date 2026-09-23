@@ -127,7 +127,7 @@ def test_decision_agents_see_the_portfolio(module, factory, monkeypatch):
     class _LLM:
         def invoke(self, prompt, *a, **k):
             seen.append(prompt if isinstance(prompt, str) else json.dumps(str(prompt)))
-            from langchain_core.messages import AIMessage
+            from tradingagents.runtime.messages import AIMessage
             return AIMessage("Rating: Hold\n\nnothing to do")
 
         def with_structured_output(self, *a, **k):

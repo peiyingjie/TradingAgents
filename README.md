@@ -218,7 +218,9 @@ An interface will appear showing results as they load, letting you track the age
 
 ### Implementation Details
 
-We built TradingAgents with LangGraph to ensure flexibility and modularity. The framework supports multiple LLM providers: OpenAI, Google, Anthropic, xAI, DeepSeek, Qwen (Alibaba DashScope, international and China endpoints), GLM (Zhipu), MiniMax (global + China), OpenRouter, Ollama for local models, and Azure OpenAI for enterprise.
+TradingAgents uses its own small graph runtime, message types, prompt formatting, tool executor, and SQLite checkpoints. Provider adapters call the native OpenAI, Anthropic, Google GenAI, and optional boto3 SDKs directly. The existing agents, prompts, graph connections, data sources, CLI, and backtest flow are preserved. There are no LangGraph or LangChain package dependencies. See [the architecture and migration notes](docs/runtime-migration.md) for the execution contract and validation evidence.
+
+Supported providers remain OpenAI, Google, Anthropic, xAI, DeepSeek, Qwen (international and China endpoints), GLM, MiniMax (global and China), OpenRouter, Ollama, Azure OpenAI, Amazon Bedrock, Mistral, Kimi, Groq, NVIDIA, and custom OpenAI-compatible endpoints. Install `tradingagents[bedrock]` to enable boto3 for Bedrock.
 
 ### Python Usage
 
@@ -303,7 +305,7 @@ Override the path with `TRADINGAGENTS_MEMORY_LOG_PATH`.
 
 ### Checkpoint resume
 
-Checkpoint resume is opt-in via `--checkpoint`. When enabled, LangGraph saves state after each node so a crashed or interrupted run resumes from the last successful step instead of starting over. The run view says whether it resumed a saved run or started fresh. Checkpoints are cleared automatically on successful completion.
+Checkpoint resume is opt-in via `--checkpoint`. When enabled, the internal runtime saves state and the next node after each successful node so a crashed or interrupted run resumes at the failed step. The run view says whether it resumed a saved run or started fresh. Checkpoints are cleared automatically on successful completion. Checkpoints written by the former framework have a different format: finish those runs with the previous version, or explicitly use `--clear-checkpoints` to start fresh. The new runtime reports old-format checkpoints and leaves them intact.
 
 Per-ticker SQLite databases live at `~/.tradingagents/cache/checkpoints/<TICKER>.db` (override the base with `TRADINGAGENTS_CACHE_DIR`). Use `--clear-checkpoints` to reset all of them before a run.
 

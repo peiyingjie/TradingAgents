@@ -1,5 +1,3 @@
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-
 from tradingagents.agents.utils.agent_utils import (
     get_balance_sheet,
     get_cashflow,
@@ -8,6 +6,7 @@ from tradingagents.agents.utils.agent_utils import (
     get_instrument_context_from_state,
     get_language_instruction,
 )
+from tradingagents.runtime.prompts import ChatPromptTemplate, MessagesPlaceholder
 
 
 def create_fundamentals_analyst(llm):

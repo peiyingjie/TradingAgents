@@ -30,9 +30,6 @@ See: https://github.com/TauricResearch/TradingAgents/issues/796
 
 from datetime import datetime, timedelta
 
-from langchain_core.messages import AIMessage
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-
 from tradingagents.agents.schemas import SentimentReport, render_sentiment_report
 from tradingagents.agents.utils.agent_utils import (
     get_instrument_context_from_state,
@@ -46,6 +43,8 @@ from tradingagents.agents.utils.structured import (
 )
 from tradingagents.dataflows.reddit import fetch_reddit_posts
 from tradingagents.dataflows.stocktwits import fetch_stocktwits_messages
+from tradingagents.runtime.messages import AIMessage
+from tradingagents.runtime.prompts import ChatPromptTemplate, MessagesPlaceholder
 
 
 def _seven_days_back(trade_date: str) -> str:

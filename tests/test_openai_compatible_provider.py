@@ -79,8 +79,9 @@ def test_structured_output_suppresses_object_tool_choice(monkeypatch):
     # LM Studio / vLLM reject the object-form tool_choice langchain sends for
     # function-calling structured output (#1057). The generic provider binds the
     # schema as a tool but must not force tool_choice.
-    from langchain_openai import ChatOpenAI
     from pydantic import BaseModel
+
+    from tradingagents.llm_clients.sdk_openai import ChatOpenAI
 
     class Schema(BaseModel):
         x: int

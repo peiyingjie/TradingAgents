@@ -4,12 +4,12 @@ from dataclasses import dataclass
 from typing import Any
 from urllib.parse import urlparse
 
-from langchain_core.messages import AIMessage
-from langchain_openai import ChatOpenAI
+from tradingagents.runtime.messages import AIMessage
 
 from .api_key_env import get_api_key_env
 from .base_client import BaseLLMClient, normalize_content
 from .capabilities import get_capabilities
+from .sdk_openai import ChatOpenAI
 from .validators import validate_model
 
 
@@ -43,7 +43,7 @@ class NormalizedChatOpenAI(ChatOpenAI):
                 f"agent factories will fall back to free-text generation."
             )
         method = method or caps.preferred_structured_method
-        # When the model rejects tool_choice, suppress langchain's hardcoded
+        # When the model rejects tool_choice, suppress the LLM client's hardcoded
         # value. The schema is still bound as a tool — exactly what
         # DeepSeek's official tool-calling examples do.
         if method == "function_calling" and not caps.supports_tool_choice:
@@ -56,7 +56,7 @@ class LocalCompatibleChatOpenAI(NormalizedChatOpenAI):
     llama.cpp via the generic ``openai_compatible`` provider).
 
     Their tool-calling support varies, and many reject the object-form
-    ``tool_choice`` langchain sends for function-calling structured output. Bind
+    ``tool_choice`` the LLM client sends for function-calling structured output. Bind
     the schema as a tool but don't force tool_choice, so structured output works
     across local servers regardless of the model ID's capabilities (#1057).
     """
@@ -69,7 +69,7 @@ class LocalCompatibleChatOpenAI(NormalizedChatOpenAI):
 
 
 def _input_to_messages(input_: Any) -> list:
-    """Normalise a langchain LLM input to a list of message objects.
+    """Normalize an LLM input to a list of message objects.
 
     Accepts a list of messages, a ``ChatPromptValue`` (from a
     ChatPromptTemplate), or anything else (treated as no messages).
@@ -145,7 +145,7 @@ class MinimaxChatOpenAI(NormalizedChatOpenAI):
     (Coding Plan, MiniMax-Text-01) never see it.
 
     Tool-choice handling for M2.x — those models accept only the string
-    enum ``{"none", "auto"}`` and reject langchain's function-spec dict —
+    enum ``{"none", "auto"}`` and reject the LLM client's function-spec dict —
     is handled by the capability dispatch in
     ``NormalizedChatOpenAI.with_structured_output``, not here.
     """

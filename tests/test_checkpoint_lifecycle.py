@@ -13,10 +13,10 @@ import tempfile
 from typing import TypedDict
 
 import pytest
-from langgraph.graph import END, StateGraph
 
 from tradingagents.graph.checkpointer import checkpoint_step
 from tradingagents.graph.trading_graph import TradingAgentsGraph
+from tradingagents.runtime.graph import END, StateGraph
 
 _should_crash = False
 

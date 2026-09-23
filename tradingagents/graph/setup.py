@@ -2,9 +2,6 @@
 
 from typing import Any
 
-from langgraph.graph import END, START, StateGraph
-from langgraph.prebuilt import ToolNode
-
 from tradingagents.agents import (
     create_aggressive_debator,
     create_bear_researcher,
@@ -21,6 +18,8 @@ from tradingagents.agents import (
     create_trader,
 )
 from tradingagents.agents.utils.agent_states import AgentState
+from tradingagents.runtime.graph import END, START, StateGraph
+from tradingagents.runtime.tools import ToolNode
 
 from .analyst_execution import build_analyst_execution_plan
 from .conditional_logic import ConditionalLogic
@@ -28,7 +27,7 @@ from .conditional_logic import ConditionalLogic
 # Every target a shared conditional router can return. Each edge driven by the
 # router maps all of them, so a fall-through return (e.g. under prompt/i18n/
 # refactor drift in the speaker labels) can never hit a missing path_map entry
-# and crash LangGraph mid-run (#1088).
+# and crash the graph runtime mid-run (#1088).
 DEBATE_PATH_MAP = {
     "Bull Researcher": "Bull Researcher",
     "Bear Researcher": "Bear Researcher",

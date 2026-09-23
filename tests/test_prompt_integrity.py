@@ -55,7 +55,7 @@ def test_an_analyst_is_not_asked_for_a_trade_call_nothing_reads(name):
 def test_a_report_that_was_never_produced_says_so(module, factory):
     """`--analysts market` leaves three reports empty; presenting them as blank
     sections invites the model to invent the contents."""
-    from langchain_core.messages import AIMessage
+    from tradingagents.runtime.messages import AIMessage
 
     mod = importlib.import_module(module)
     seen = []

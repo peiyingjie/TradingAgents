@@ -68,7 +68,7 @@ _DEEPSEEK_CHAT = ModelCapabilities(
 
 # MiniMax M2.x reasoning models accept the tools array, but their
 # tool_choice parameter is restricted to the enum {"none", "auto"}
-# (platform.minimax.io/docs/api-reference/text-post). Langchain's
+# (platform.minimax.io/docs/api-reference/text-post). The LLM client's
 # function_calling path sends tool_choice as a function-spec dict, which
 # MiniMax 400s — same shape as the DeepSeek bug. supports_tool_choice=False
 # makes the dispatch in NormalizedChatOpenAI suppress the kwarg; the schema

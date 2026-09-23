@@ -10,10 +10,10 @@ _BEDROCK_CLASS = None
 
 
 def _bedrock_class():
-    """Lazily import langchain-aws (the optional ``[bedrock]`` extra) and return a
+    """Lazily import boto3 (the optional ``[bedrock]`` extra) and return a
     ChatBedrockConverse subclass with normalized content output.
 
-    Imported on demand so the optional dependency (and boto3) isn't required by
+    Imported on demand so boto3 isn't required by
     the rest of the package; cached after the first call.
     """
     global _BEDROCK_CLASS
@@ -21,10 +21,12 @@ def _bedrock_class():
         return _BEDROCK_CLASS
 
     try:
-        from langchain_aws import ChatBedrockConverse
+        import boto3  # noqa: F401
+
+        from .sdk_bedrock import ChatBedrockConverse
     except ImportError as exc:
         raise ImportError(
-            "AWS Bedrock support requires the optional 'langchain-aws' dependency. "
+            "AWS Bedrock support requires the optional 'boto3' dependency. "
             'Install it with: pip install "tradingagents[bedrock]"'
         ) from exc
 
@@ -39,7 +41,7 @@ def _bedrock_class():
 
 
 class BedrockClient(BaseLLMClient):
-    """Client for Amazon Bedrock via the Converse API (langchain-aws).
+    """Client for Amazon Bedrock via the Converse API (boto3).
 
     Authentication is either a Bedrock API key (bearer token) via
     ``AWS_BEARER_TOKEN_BEDROCK`` — no AWS access keys required — or the standard
@@ -61,7 +63,7 @@ class BedrockClient(BaseLLMClient):
         )
         llm_kwargs = {"model": self.model, "region_name": region}
         # A Bedrock API key authenticates without AWS access keys. Passing it as
-        # api_key makes langchain-aws prefer bearer auth, so an ambient
+        # api_key makes boto3 prefer bearer auth, so an ambient
         # AWS_PROFILE / SigV4 credentials can't override it (#1103).
         bearer_token = os.environ.get("AWS_BEARER_TOKEN_BEDROCK")
         if bearer_token:

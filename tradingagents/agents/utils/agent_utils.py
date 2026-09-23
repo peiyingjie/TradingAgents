@@ -4,7 +4,6 @@ from collections.abc import Mapping
 from typing import Any
 
 import yfinance as yf
-from langchain_core.messages import HumanMessage, RemoveMessage
 
 # Import tools from separate utility files
 from tradingagents.agents.utils.core_stock_tools import get_stock_data
@@ -23,6 +22,7 @@ from tradingagents.agents.utils.news_data_tools import (
 )
 from tradingagents.agents.utils.prediction_markets_tools import get_prediction_markets
 from tradingagents.agents.utils.technical_indicators_tools import get_indicators
+from tradingagents.runtime.messages import HumanMessage, RemoveMessage
 
 # Public surface: the data tools are imported here so agents and the graph
 # import them from one place, plus the instrument/language helpers defined below.

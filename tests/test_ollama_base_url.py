@@ -204,10 +204,10 @@ def test_structured_output_suppresses_object_tool_choice(monkeypatch):
     """Ollama rejects the object-form tool_choice like other local servers
     (#1062), and a local model ID has no capability entry saying otherwise, so
     it takes the same client as the generic local endpoint."""
-    from langchain_openai import ChatOpenAI
     from pydantic import BaseModel
 
     from tradingagents.llm_clients import create_llm_client
+    from tradingagents.llm_clients.sdk_openai import ChatOpenAI
 
     class Schema(BaseModel):
         x: int

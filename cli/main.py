@@ -954,13 +954,13 @@ def extract_content_string(content):
 
 
 def classify_message_type(message) -> tuple[str, str | None]:
-    """Classify LangChain message into display type and extract content.
+    """Classify a runtime message into display type and extract content.
 
     Returns:
         (type, content) - type is one of: User, Agent, Data, Control
                         - content is extracted string or None
     """
-    from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
+    from tradingagents.runtime.messages import AIMessage, HumanMessage, ToolMessage
 
     content = extract_content_string(getattr(message, 'content', None))
 
@@ -1175,7 +1175,7 @@ def run_analysis(checkpoint: bool | None = None, portfolio=None):
         if checkpoint_tid is not None:
             args.setdefault("config", {}).setdefault("configurable", {})["thread_id"] = checkpoint_tid
 
-        # Stream the analysis. On resume, feed None so LangGraph continues the
+        # Stream the analysis. On resume, feed None so the graph runtime continues the
         # interrupted run instead of re-appending the initial state (#1249); the
         # try/finally tears the checkpointer down even if the stream raises.
         trace = []

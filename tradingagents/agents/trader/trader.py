@@ -4,8 +4,6 @@ from __future__ import annotations
 
 import functools
 
-from langchain_core.messages import AIMessage
-
 from tradingagents.agents.schemas import TraderProposal, render_trader_proposal
 from tradingagents.agents.utils.agent_utils import (
     get_instrument_context_from_state,
@@ -17,6 +15,7 @@ from tradingagents.agents.utils.structured import (
     bind_structured,
     invoke_structured_or_freetext,
 )
+from tradingagents.runtime.messages import AIMessage
 
 
 def create_trader(llm):

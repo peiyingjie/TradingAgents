@@ -1,9 +1,8 @@
 import os
 from typing import Any
 
-from langchain_openai import AzureChatOpenAI
-
 from .base_client import BaseLLMClient, normalize_content
+from .sdk_openai import AzureChatOpenAI
 
 _PASSTHROUGH_KWARGS = (
     "timeout", "max_retries", "api_key", "reasoning_effort", "temperature",

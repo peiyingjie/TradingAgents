@@ -1,4 +1,4 @@
-"""LangGraph checkpoint support for resumable analysis runs.
+"""SQLite checkpoint support for resumable analysis runs.
 
 Per-ticker SQLite databases so concurrent tickers don't contend.
 """
@@ -11,9 +11,8 @@ from collections.abc import Generator
 from contextlib import contextmanager
 from pathlib import Path
 
-from langgraph.checkpoint.sqlite import SqliteSaver
-
 from tradingagents.dataflows.utils import safe_ticker_component
+from tradingagents.runtime.checkpoint import SqliteSaver
 
 
 def _db_path(data_dir: str | Path, ticker: str) -> Path:
@@ -63,11 +62,10 @@ def checkpoint_step(data_dir: str | Path, ticker: str, date: str, signature: str
         return None
     tid = thread_id(ticker, date, signature)
     with get_checkpointer(data_dir, ticker) as saver:
-        config = {"configurable": {"thread_id": tid}}
-        cp = saver.get_tuple(config)
+        cp = saver.load(tid)
         if cp is None:
             return None
-        return cp.metadata.get("step")
+        return cp.step
 
 
 def clear_all_checkpoints(data_dir: str | Path) -> int:
@@ -95,8 +93,10 @@ def clear_checkpoint(data_dir: str | Path, ticker: str, date: str, signature: st
     tid = thread_id(ticker, date, signature)
     conn = sqlite3.connect(str(db))
     try:
-        for table in ("writes", "checkpoints"):
-            conn.execute(f"DELETE FROM {table} WHERE thread_id = ?", (tid,))
+        for table in ("runtime_checkpoints", "writes", "checkpoints"):
+            exists = conn.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name=?", (table,)).fetchone()
+            if exists:
+                conn.execute(f"DELETE FROM {table} WHERE thread_id = ?", (tid,))
         conn.commit()
     except sqlite3.OperationalError:
         pass

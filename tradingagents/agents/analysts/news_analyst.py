@@ -1,5 +1,3 @@
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-
 from tradingagents.agents.utils.agent_utils import (
     get_global_news,
     get_instrument_context_from_state,
@@ -8,6 +6,7 @@ from tradingagents.agents.utils.agent_utils import (
     get_news,
     get_prediction_markets,
 )
+from tradingagents.runtime.prompts import ChatPromptTemplate, MessagesPlaceholder
 
 
 def create_news_analyst(llm):

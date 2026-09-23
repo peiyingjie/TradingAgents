@@ -4,8 +4,6 @@ import tempfile
 import unittest
 from typing import TypedDict
 
-from langgraph.graph import END, StateGraph
-
 from tradingagents.graph.checkpointer import (
     checkpoint_step,
     clear_checkpoint,
@@ -13,6 +11,7 @@ from tradingagents.graph.checkpointer import (
     has_checkpoint,
     thread_id,
 )
+from tradingagents.runtime.graph import END, StateGraph
 
 # Mutable flag to simulate crash on first run
 _should_crash = False

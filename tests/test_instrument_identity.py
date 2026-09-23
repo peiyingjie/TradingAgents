@@ -5,7 +5,6 @@ import unittest
 from unittest.mock import patch
 
 import pytest
-from langchain_core.messages import AIMessage, HumanMessage, RemoveMessage
 
 from tradingagents.agents.utils.agent_utils import (
     build_instrument_context,
@@ -13,6 +12,7 @@ from tradingagents.agents.utils.agent_utils import (
     get_instrument_context_from_state,
     resolve_instrument_identity,
 )
+from tradingagents.runtime.messages import AIMessage, HumanMessage, RemoveMessage
 
 
 @pytest.mark.unit

@@ -1,6 +1,6 @@
 """Portfolio Manager: synthesises the risk-analyst debate into the final decision.
 
-Uses LangChain's ``with_structured_output`` so the LLM produces a typed
+Uses the LLM client's ``with_structured_output`` so the LLM produces a typed
 ``PortfolioDecision`` directly, in a single call.  The result is rendered
 back to markdown for storage in ``final_trade_decision`` so memory log,
 CLI display, and saved reports continue to consume the same shape they do

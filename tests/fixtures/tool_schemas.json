@@ -1,0 +1,363 @@
+{
+  "get_stock_data": {
+    "type": "function",
+    "function": {
+      "name": "get_stock_data",
+      "description": "Retrieve stock price data (OHLCV) for a given ticker symbol.\nUses the configured core_stock_apis vendor.\nArgs:\n    symbol (str): Ticker symbol of the company, e.g. AAPL, TSM\n    start_date (str): Start date in yyyy-mm-dd format\n    end_date (str): End date in yyyy-mm-dd format\nReturns:\n    str: A formatted dataframe containing the stock price data for the specified ticker symbol in the specified date range.",
+      "parameters": {
+        "properties": {
+          "symbol": {
+            "description": "ticker symbol of the company",
+            "type": "string"
+          },
+          "start_date": {
+            "description": "Start date in yyyy-mm-dd format",
+            "type": "string"
+          },
+          "end_date": {
+            "description": "End date in yyyy-mm-dd format",
+            "type": "string"
+          }
+        },
+        "required": [
+          "symbol",
+          "start_date",
+          "end_date"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "get_indicators": {
+    "type": "function",
+    "function": {
+      "name": "get_indicators",
+      "description": "Retrieve a single technical indicator for a given ticker symbol.\nUses the configured technical_indicators vendor.\nArgs:\n    symbol (str): Ticker symbol of the company, e.g. AAPL, TSM\n    indicator (str): A single technical indicator name, e.g. 'rsi', 'macd'. Call this tool once per indicator.\n    curr_date (str): The current trading date you are trading on, YYYY-mm-dd\n    look_back_days (int): How many days to look back, default is 30\nReturns:\n    str: A formatted dataframe containing the technical indicators for the specified ticker symbol and indicator.",
+      "parameters": {
+        "properties": {
+          "symbol": {
+            "description": "ticker symbol of the company",
+            "type": "string"
+          },
+          "indicator": {
+            "description": "technical indicator to get the analysis and report of",
+            "type": "string"
+          },
+          "curr_date": {
+            "description": "The current trading date you are trading on, YYYY-mm-dd",
+            "type": "string"
+          },
+          "look_back_days": {
+            "default": 30,
+            "description": "how many days to look back",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "symbol",
+          "indicator",
+          "curr_date"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "get_verified_market_snapshot": {
+    "type": "function",
+    "function": {
+      "name": "get_verified_market_snapshot",
+      "description": "Deterministic verification snapshot for exact market-data claims.\n\nReturns the latest OHLCV row on or before curr_date, common technical\nindicators, and recent closes. Call this before making exact claims about\nprice levels, Bollinger bands, RSI, MACD, moving averages, support /\nresistance, or historical comparisons, and treat it as the source of truth.",
+      "parameters": {
+        "properties": {
+          "symbol": {
+            "description": "ticker symbol of the company",
+            "type": "string"
+          },
+          "curr_date": {
+            "description": "the current trading date, YYYY-mm-dd",
+            "type": "string"
+          },
+          "look_back_days": {
+            "default": 30,
+            "description": "number of recent trading rows to include for sanity-checking",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "symbol",
+          "curr_date"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "get_news": {
+    "type": "function",
+    "function": {
+      "name": "get_news",
+      "description": "Retrieve news data for a given ticker symbol.\nUses the configured news_data vendor.\nArgs:\n    ticker (str): Ticker symbol\n    start_date (str): Start date in yyyy-mm-dd format\n    end_date (str): End date in yyyy-mm-dd format\nReturns:\n    str: A formatted string containing news data",
+      "parameters": {
+        "properties": {
+          "ticker": {
+            "description": "Ticker symbol",
+            "type": "string"
+          },
+          "start_date": {
+            "description": "Start date in yyyy-mm-dd format",
+            "type": "string"
+          },
+          "end_date": {
+            "description": "End date in yyyy-mm-dd format",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ticker",
+          "start_date",
+          "end_date"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "get_global_news": {
+    "type": "function",
+    "function": {
+      "name": "get_global_news",
+      "description": "Retrieve global news data.\nUses the configured news_data vendor. Defaults for look_back_days and\nlimit come from DEFAULT_CONFIG (global_news_lookback_days,\nglobal_news_article_limit); pass explicit values to override.\n\nArgs:\n    curr_date (str): Current date in yyyy-mm-dd format\n    look_back_days (int): Number of days to look back; omit to inherit config\n    limit (int): Maximum number of articles to return; omit to inherit config\n\nReturns:\n    str: A formatted string containing global news data",
+      "parameters": {
+        "properties": {
+          "curr_date": {
+            "description": "Current date in yyyy-mm-dd format",
+            "type": "string"
+          },
+          "look_back_days": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Days to look back; omit to use the configured default"
+          },
+          "limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Max articles to return; omit to use the configured default"
+          }
+        },
+        "required": [
+          "curr_date"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "get_insider_transactions": {
+    "type": "function",
+    "function": {
+      "name": "get_insider_transactions",
+      "description": "Retrieve insider transaction information about a company.\nUses the configured news_data vendor.\nArgs:\n    ticker (str): Ticker symbol of the company\nReturns:\n    str: A report of insider transaction data",
+      "parameters": {
+        "properties": {
+          "ticker": {
+            "description": "ticker symbol",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ticker"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "get_macro_indicators": {
+    "type": "function",
+    "function": {
+      "name": "get_macro_indicators",
+      "description": "Retrieve a macroeconomic indicator time series from FRED (Federal Reserve\nEconomic Data): policy rates, Treasury yields, inflation, labor, and growth.\nReturns the series title, units, frequency, the latest value, the change\nover the window, and a recent observation table. Uses the configured\nmacro_data vendor.\n\nArgs:\n    indicator (str): Friendly alias or raw FRED series ID\n    curr_date (str): Current date in yyyy-mm-dd format\n    look_back_days (int): Trailing window length; omit for a 1-year window\n\nReturns:\n    str: A formatted markdown report of the macro series",
+      "parameters": {
+        "properties": {
+          "indicator": {
+            "description": "Macro indicator: a friendly alias such as 'cpi', 'core_pce', 'unemployment', 'fed_funds_rate', '10y_treasury', 'yield_curve', 'real_gdp', 'vix', or a raw FRED series ID such as 'CPIAUCSL'.",
+            "type": "string"
+          },
+          "curr_date": {
+            "description": "Current date in yyyy-mm-dd format; the end of the window",
+            "type": "string"
+          },
+          "look_back_days": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Trailing window length in days; omit for a 1-year window"
+          }
+        },
+        "required": [
+          "indicator",
+          "curr_date"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "get_prediction_markets": {
+    "type": "function",
+    "function": {
+      "name": "get_prediction_markets",
+      "description": "Retrieve live, market-implied probabilities for forward-looking events from\nprediction markets (Polymarket): Fed decisions, recession, elections,\ngeopolitics, crypto. Returns the most-traded open markets matching the\ntopic, each with its implied probability, traded volume, resolution date,\nand recent move. Uses the configured prediction_markets vendor.\n\nArgs:\n    topic (str): Event keyword(s) to search\n    limit (int): Max markets to return; omit for a default of 6\n\nReturns:\n    str: A formatted markdown report of matching prediction markets",
+      "parameters": {
+        "properties": {
+          "topic": {
+            "description": "Event topic/keyword, e.g. 'Fed rate cut', 'recession 2026', 'US election', or a sector/company event.",
+            "type": "string"
+          },
+          "limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Max markets to return; omit for a default of 6"
+          }
+        },
+        "required": [
+          "topic"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "get_fundamentals": {
+    "type": "function",
+    "function": {
+      "name": "get_fundamentals",
+      "description": "Retrieve comprehensive fundamental data for a given ticker symbol.\nUses the configured fundamental_data vendor.\nArgs:\n    ticker (str): Ticker symbol of the company\n    curr_date (str): Current date you are trading at, yyyy-mm-dd\nReturns:\n    str: A formatted report containing comprehensive fundamental data",
+      "parameters": {
+        "properties": {
+          "ticker": {
+            "description": "ticker symbol",
+            "type": "string"
+          },
+          "curr_date": {
+            "description": "current date you are trading at, yyyy-mm-dd",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ticker",
+          "curr_date"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "get_balance_sheet": {
+    "type": "function",
+    "function": {
+      "name": "get_balance_sheet",
+      "description": "Retrieve balance sheet data for a given ticker symbol.\nUses the configured fundamental_data vendor.\nArgs:\n    ticker (str): Ticker symbol of the company\n    freq (str): Reporting frequency: annual/quarterly (default quarterly)\n    curr_date (str): Current date you are trading at, yyyy-mm-dd\nReturns:\n    str: A formatted report containing balance sheet data",
+      "parameters": {
+        "properties": {
+          "ticker": {
+            "description": "ticker symbol",
+            "type": "string"
+          },
+          "freq": {
+            "default": "quarterly",
+            "description": "reporting frequency: annual/quarterly",
+            "type": "string"
+          },
+          "curr_date": {
+            "default": null,
+            "description": "current date you are trading at, yyyy-mm-dd",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ticker"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "get_cashflow": {
+    "type": "function",
+    "function": {
+      "name": "get_cashflow",
+      "description": "Retrieve cash flow statement data for a given ticker symbol.\nUses the configured fundamental_data vendor.\nArgs:\n    ticker (str): Ticker symbol of the company\n    freq (str): Reporting frequency: annual/quarterly (default quarterly)\n    curr_date (str): Current date you are trading at, yyyy-mm-dd\nReturns:\n    str: A formatted report containing cash flow statement data",
+      "parameters": {
+        "properties": {
+          "ticker": {
+            "description": "ticker symbol",
+            "type": "string"
+          },
+          "freq": {
+            "default": "quarterly",
+            "description": "reporting frequency: annual/quarterly",
+            "type": "string"
+          },
+          "curr_date": {
+            "default": null,
+            "description": "current date you are trading at, yyyy-mm-dd",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ticker"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "get_income_statement": {
+    "type": "function",
+    "function": {
+      "name": "get_income_statement",
+      "description": "Retrieve income statement data for a given ticker symbol.\nUses the configured fundamental_data vendor.\nArgs:\n    ticker (str): Ticker symbol of the company\n    freq (str): Reporting frequency: annual/quarterly (default quarterly)\n    curr_date (str): Current date you are trading at, yyyy-mm-dd\nReturns:\n    str: A formatted report containing income statement data",
+      "parameters": {
+        "properties": {
+          "ticker": {
+            "description": "ticker symbol",
+            "type": "string"
+          },
+          "freq": {
+            "default": "quarterly",
+            "description": "reporting frequency: annual/quarterly",
+            "type": "string"
+          },
+          "curr_date": {
+            "default": null,
+            "description": "current date you are trading at, yyyy-mm-dd",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ticker"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

@@ -178,7 +178,7 @@ def test_a_decision_prompt_states_the_shape_of_its_answer(module, factory, must_
     fallback answer is prose nobody can read a rating from."""
     import importlib
 
-    from langchain_core.messages import AIMessage
+    from tradingagents.runtime.messages import AIMessage
 
     mod = importlib.import_module(module)
     seen = []

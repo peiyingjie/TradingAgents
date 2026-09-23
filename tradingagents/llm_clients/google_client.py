@@ -1,9 +1,8 @@
 import re
 from typing import Any
 
-from langchain_google_genai import ChatGoogleGenerativeAI
-
 from .base_client import BaseLLMClient, normalize_content
+from .sdk_google import ChatGoogleGenerativeAI
 from .validators import validate_model
 
 _GEMINI_VERSION = re.compile(r"^gemini-(\d+)\.(\d+)")

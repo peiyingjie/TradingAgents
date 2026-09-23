@@ -1,0 +1,467 @@
+[
+  {
+    "class": "NormalizedChatOpenAI",
+    "options": {
+      "model": "gpt-4.1",
+      "temperature": 0.2,
+      "max_tokens": 64
+    },
+    "payload": {
+      "model": "gpt-4.1",
+      "temperature": 0.2,
+      "max_completion_tokens": 64,
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "Pick",
+            "description": "",
+            "parameters": {
+              "properties": {
+                "action": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "action"
+              ],
+              "type": "object"
+            }
+          }
+        }
+      ],
+      "parallel_tool_calls": false,
+      "tool_choice": {
+        "type": "function",
+        "function": {
+          "name": "Pick"
+        }
+      },
+      "messages": [
+        {
+          "content": "system",
+          "role": "system"
+        },
+        {
+          "content": "pick",
+          "role": "user"
+        }
+      ]
+    }
+  },
+  {
+    "class": "NormalizedChatOpenAI",
+    "options": {
+      "model": "gpt-5.6",
+      "temperature": 0.2,
+      "reasoning_effort": "high",
+      "use_responses_api": true
+    },
+    "payload": {
+      "model": "gpt-5.6",
+      "parallel_tool_calls": false,
+      "reasoning": {
+        "effort": "high"
+      },
+      "input": [
+        {
+          "content": "system",
+          "role": "system",
+          "type": "message"
+        },
+        {
+          "content": "pick",
+          "role": "user",
+          "type": "message"
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "name": "Pick",
+          "description": "",
+          "parameters": {
+            "properties": {
+              "action": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "tool_choice": {
+        "type": "function",
+        "name": "Pick"
+      }
+    }
+  },
+  {
+    "class": "NormalizedChatOpenAI",
+    "options": {
+      "model": "gpt-5.6",
+      "temperature": 0.2,
+      "reasoning_effort": "none",
+      "use_responses_api": true
+    },
+    "payload": {
+      "model": "gpt-5.6",
+      "temperature": 0.2,
+      "parallel_tool_calls": false,
+      "reasoning": {
+        "effort": "none"
+      },
+      "input": [
+        {
+          "content": "system",
+          "role": "system",
+          "type": "message"
+        },
+        {
+          "content": "pick",
+          "role": "user",
+          "type": "message"
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "name": "Pick",
+          "description": "",
+          "parameters": {
+            "properties": {
+              "action": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "tool_choice": {
+        "type": "function",
+        "name": "Pick"
+      }
+    }
+  },
+  {
+    "class": "NormalizedChatOpenAI",
+    "options": {
+      "model": "gpt-5-chat",
+      "temperature": 0.2,
+      "use_responses_api": true
+    },
+    "payload": {
+      "model": "gpt-5-chat",
+      "temperature": 0.2,
+      "parallel_tool_calls": false,
+      "input": [
+        {
+          "content": "system",
+          "role": "system",
+          "type": "message"
+        },
+        {
+          "content": "pick",
+          "role": "user",
+          "type": "message"
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "name": "Pick",
+          "description": "",
+          "parameters": {
+            "properties": {
+              "action": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "tool_choice": {
+        "type": "function",
+        "name": "Pick"
+      }
+    }
+  },
+  {
+    "class": "DeepSeekChatOpenAI",
+    "options": {
+      "model": "deepseek-v4-flash",
+      "max_tokens": 64
+    },
+    "payload": {
+      "model": "deepseek-v4-flash",
+      "max_completion_tokens": 64,
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "Pick",
+            "description": "",
+            "parameters": {
+              "properties": {
+                "action": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "action"
+              ],
+              "type": "object"
+            }
+          }
+        }
+      ],
+      "parallel_tool_calls": false,
+      "messages": [
+        {
+          "content": "system",
+          "role": "system"
+        },
+        {
+          "content": "pick",
+          "role": "user"
+        }
+      ]
+    }
+  },
+  {
+    "class": "MinimaxChatOpenAI",
+    "options": {
+      "model": "MiniMax-M2.7",
+      "max_tokens": 64
+    },
+    "payload": {
+      "model": "MiniMax-M2.7",
+      "max_completion_tokens": 64,
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "Pick",
+            "description": "",
+            "parameters": {
+              "properties": {
+                "action": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "action"
+              ],
+              "type": "object"
+            }
+          }
+        }
+      ],
+      "parallel_tool_calls": false,
+      "messages": [
+        {
+          "content": "system",
+          "role": "system"
+        },
+        {
+          "content": "pick",
+          "role": "user"
+        }
+      ],
+      "extra_body": {
+        "reasoning_split": true
+      }
+    }
+  },
+  {
+    "class": "LocalCompatibleChatOpenAI",
+    "options": {
+      "model": "local-model",
+      "temperature": 0
+    },
+    "payload": {
+      "model": "local-model",
+      "temperature": 0.0,
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "Pick",
+            "description": "",
+            "parameters": {
+              "properties": {
+                "action": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "action"
+              ],
+              "type": "object"
+            }
+          }
+        }
+      ],
+      "parallel_tool_calls": false,
+      "messages": [
+        {
+          "content": "system",
+          "role": "system"
+        },
+        {
+          "content": "pick",
+          "role": "user"
+        }
+      ]
+    }
+  },
+  {
+    "class": "NormalizedChatAnthropic",
+    "options": {
+      "model": "claude-sonnet-5",
+      "effort": "high"
+    },
+    "payload": {
+      "model": "claude-sonnet-5",
+      "max_tokens": 128000,
+      "messages": [
+        {
+          "role": "user",
+          "content": "pick"
+        }
+      ],
+      "system": "system",
+      "tools": [
+        {
+          "name": "Pick",
+          "input_schema": {
+            "properties": {
+              "action": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "type": "object"
+          },
+          "description": ""
+        }
+      ],
+      "tool_choice": {
+        "type": "tool",
+        "name": "Pick"
+      },
+      "output_config": {
+        "effort": "high"
+      },
+      "thinking": {
+        "type": "adaptive",
+        "display": "summarized"
+      }
+    }
+  },
+  {
+    "class": "NormalizedChatAnthropic",
+    "options": {
+      "model": "claude-fable-5",
+      "effort": "high"
+    },
+    "payload": {
+      "model": "claude-fable-5",
+      "max_tokens": 128000,
+      "messages": [
+        {
+          "role": "user",
+          "content": "pick"
+        }
+      ],
+      "system": "system",
+      "tools": [
+        {
+          "name": "Pick",
+          "input_schema": {
+            "properties": {
+              "action": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "type": "object"
+          },
+          "description": ""
+        }
+      ],
+      "tool_choice": {
+        "type": "tool",
+        "name": "Pick"
+      },
+      "output_config": {
+        "effort": "high"
+      },
+      "thinking": {
+        "type": "adaptive",
+        "display": "summarized"
+      }
+    }
+  },
+  {
+    "class": "NormalizedChatAnthropic",
+    "options": {
+      "model": "claude-opus-4-8",
+      "effort": "high"
+    },
+    "payload": {
+      "model": "claude-opus-4-8",
+      "max_tokens": 128000,
+      "messages": [
+        {
+          "role": "user",
+          "content": "pick"
+        }
+      ],
+      "system": "system",
+      "tools": [
+        {
+          "name": "Pick",
+          "input_schema": {
+            "properties": {
+              "action": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "action"
+            ],
+            "type": "object"
+          },
+          "description": ""
+        }
+      ],
+      "tool_choice": {
+        "type": "tool",
+        "name": "Pick"
+      },
+      "output_config": {
+        "effort": "high"
+      },
+      "thinking": {
+        "type": "adaptive",
+        "display": "summarized"
+      }
+    }
+  }
+]

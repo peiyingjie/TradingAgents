@@ -9,7 +9,6 @@ from pathlib import Path
 from typing import Any
 
 import yfinance as yf
-from langgraph.prebuilt import ToolNode
 
 # Import the abstract tool methods from agent_utils
 from tradingagents.agents.utils.agent_utils import (
@@ -34,6 +33,7 @@ from tradingagents.dataflows.utils import get_current_date, safe_ticker_componen
 from tradingagents.default_config import DEFAULT_CONFIG
 from tradingagents.llm_clients import create_llm_client
 from tradingagents.reporting import write_report_tree
+from tradingagents.runtime.tools import ToolNode
 
 from .checkpointer import checkpoint_step, clear_checkpoint, get_checkpointer, thread_id
 from .conditional_logic import ConditionalLogic
@@ -474,12 +474,15 @@ class TradingAgentsGraph:
             return None
         signature = self._run_signature(asset_type, portfolio)
         self._checkpointer_ctx = get_checkpointer(self.config["data_cache_dir"], company_name)
-        saver = self._checkpointer_ctx.__enter__()
-        self.graph = self.workflow.compile(checkpointer=saver)
-
-        step = checkpoint_step(
-            self.config["data_cache_dir"], company_name, str(trade_date), signature
-        )
+        try:
+            saver = self._checkpointer_ctx.__enter__()
+            self.graph = self.workflow.compile(checkpointer=saver)
+            step = checkpoint_step(
+                self.config["data_cache_dir"], company_name, str(trade_date), signature
+            )
+        except BaseException:
+            self.end_checkpoint()
+            raise
         self._resuming = step is not None
         if step is not None:
             logger.info("Resuming from step %d for %s on %s", step, company_name, trade_date)
@@ -491,7 +494,7 @@ class TradingAgentsGraph:
         """The value to stream/invoke: ``None`` to resume an existing checkpoint,
         else the initial state for a fresh run.
 
-        LangGraph resumes an interrupted thread when invoked with ``None``;
+        The graph runtime resumes an interrupted thread when invoked with ``None``;
         re-passing the initial state instead appends it through the message
         reducer, duplicating messages in the resumed state (#1249).
         """
@@ -603,8 +606,8 @@ class TradingAgentsGraph:
                         msg.pretty_print()
                         last_printed = signature
                     trace.append(chunk)
-            # Streamed chunks are per-node deltas. Merge them so the returned
-            # state matches what graph.invoke() yields in the non-debug path.
+            # Values-mode chunks are full state snapshots. Accumulate the last
+            # snapshot so debug and non-debug paths return the same state.
             final_state = {}
             for chunk in trace:
                 final_state.update(chunk)

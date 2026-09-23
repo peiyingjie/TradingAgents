@@ -1,7 +1,8 @@
 from typing import Annotated
 
-from langgraph.graph import MessagesState
 from typing_extensions import TypedDict
+
+from tradingagents.runtime.graph import MessagesState
 
 
 # Researcher team state
