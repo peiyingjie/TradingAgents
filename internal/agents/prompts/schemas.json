@@ -1,0 +1,212 @@
+{
+  "ResearchPlan": {
+    "type": "function",
+    "function": {
+      "name": "ResearchPlan",
+      "description": "Structured investment plan produced by the Research Manager.\n\nHand-off to the Trader: the recommendation pins the directional view,\nthe rationale captures which side of the bull/bear debate carried the\nargument, and the strategic actions translate that into concrete\ninstructions the trader can execute against.",
+      "parameters": {
+        "properties": {
+          "recommendation": {
+            "description": "The investment recommendation. Exactly one of Buy / Overweight / Hold / Underweight / Sell. Conflicting arguments alone are not a reason to Hold: commit to the stronger side, sized by how decisively it wins. Choose Hold only when the evidence is still balanced after weighing, or too thin to support a call.",
+            "enum": [
+              "Buy",
+              "Overweight",
+              "Hold",
+              "Underweight",
+              "Sell"
+            ],
+            "type": "string"
+          },
+          "rationale": {
+            "description": "Conversational summary of the key points from both sides of the debate, ending with which arguments led to the recommendation. Speak naturally, as if to a teammate.",
+            "type": "string"
+          },
+          "strategic_actions": {
+            "description": "Concrete steps for the trader to implement the recommendation, including sizing guidance relative to a standard allocation. The research team does not see the caller's holdings; the trader and portfolio manager apply the actual position.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "recommendation",
+          "rationale",
+          "strategic_actions"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "TraderProposal": {
+    "type": "function",
+    "function": {
+      "name": "TraderProposal",
+      "description": "Structured transaction proposal produced by the Trader.\n\nThe trader reads the Research Manager's investment plan and the analyst\nreports, then turns them into a concrete transaction: what action to\ntake, the reasoning that justifies it, and the practical levels for\nentry, stop-loss, and sizing.",
+      "parameters": {
+        "properties": {
+          "action": {
+            "description": "The transaction direction. Exactly one of Buy / Hold / Sell.",
+            "enum": [
+              "Buy",
+              "Hold",
+              "Sell"
+            ],
+            "type": "string"
+          },
+          "reasoning": {
+            "description": "The case for this action, anchored in the analysts' reports and the research plan. Two to four sentences.",
+            "type": "string"
+          },
+          "entry_price": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional entry price target as an absolute number in the instrument's quote currency (e.g. 189.5), never a percentage or a range. Omit it if you cannot state a specific level."
+          },
+          "stop_loss": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional stop-loss as an absolute price in the instrument's quote currency (e.g. 172.0), never a percentage. Convert a percentage distance to the price level it implies, or omit it."
+          },
+          "position_sizing": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional sizing guidance, e.g. '5% of portfolio'."
+          }
+        },
+        "required": [
+          "action",
+          "reasoning"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "PortfolioDecision": {
+    "type": "function",
+    "function": {
+      "name": "PortfolioDecision",
+      "description": "Structured output produced by the Portfolio Manager.\n\nThe model fills every field as part of its primary LLM call; no separate\nextraction pass is required. Field descriptions double as the model's\noutput instructions, so the prompt body only needs to convey context and\nthe rating-scale guidance.",
+      "parameters": {
+        "properties": {
+          "rating": {
+            "description": "The final position rating. Exactly one of Buy / Overweight / Hold / Underweight / Sell, picked based on the analysts' debate. Conflicting arguments alone are not a reason to Hold: commit to the stronger side, sized by how decisively it wins. Choose Hold only when the evidence is still balanced after weighing, or too thin to support a call.",
+            "enum": [
+              "Buy",
+              "Overweight",
+              "Hold",
+              "Underweight",
+              "Sell"
+            ],
+            "type": "string"
+          },
+          "executive_summary": {
+            "description": "A concise action plan covering entry strategy, position sizing, key risk levels, and time horizon. Two to four sentences.",
+            "type": "string"
+          },
+          "investment_thesis": {
+            "description": "Detailed reasoning anchored in specific evidence from the analysts' debate. If prior lessons are referenced in the prompt context, incorporate them; otherwise rely solely on the current analysis.",
+            "type": "string"
+          },
+          "price_target": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional target price in the instrument's quote currency."
+          },
+          "time_horizon": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional recommended holding period, e.g. '3-6 months'."
+          }
+        },
+        "required": [
+          "rating",
+          "executive_summary",
+          "investment_thesis"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "SentimentReport": {
+    "type": "function",
+    "function": {
+      "name": "SentimentReport",
+      "description": "Structured sentiment report produced by the Sentiment Analyst.\n\nReplaces the previous free-form prose output so downstream consumers\n(dashboards, audit logs, PDF renderers, other agents) can read\n``overall_band`` and ``overall_score`` without maintaining fragile regex\nfallbacks that drift with every model release. ``narrative`` preserves the\nrich source-by-source analysis; ``render_sentiment_report`` prepends a\ndeterministic header so the saved report stays human-readable.",
+      "parameters": {
+        "properties": {
+          "overall_band": {
+            "description": "Overall sentiment direction. Exactly one of: Bullish / Mildly Bullish / Neutral / Mixed / Mildly Bearish / Bearish. Use Mixed when sources point in clearly different directions. Use Neutral only when all sources are genuinely silent or non-committal.",
+            "enum": [
+              "Bullish",
+              "Mildly Bullish",
+              "Neutral",
+              "Mixed",
+              "Mildly Bearish",
+              "Bearish"
+            ],
+            "type": "string"
+          },
+          "overall_score": {
+            "description": "Numeric sentiment intensity on a 0–10 scale. 0 = maximally bearish, 5 = neutral, 10 = maximally bullish. Guideline for consistency with overall_band: Bullish ~6.5–10, Mildly Bullish ~5.5–6.4, Neutral/Mixed ~4.5–5.5, Mildly Bearish ~3.5–4.4, Bearish ~0–3.4. Only the 0–10 bounds are enforced.",
+            "maximum": 10.0,
+            "minimum": 0.0,
+            "type": "number"
+          },
+          "confidence": {
+            "description": "Confidence in the assessment based on data quality and sample size. Use 'low' when one or more sources returned a placeholder or fewer than 5 data points; 'medium' when data is present but sparse; 'high' when all three sources returned substantive data.",
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "type": "string"
+          },
+          "narrative": {
+            "description": "Full sentiment report covering, in order: (1) source-by-source breakdown with specific evidence (cite message counts, ratios, notable posts); (2) cross-source divergences and alignments; (3) dominant narrative themes; (4) catalysts and risks surfaced by the data; (5) a markdown table summarising key sentiment signals, their direction, source, and supporting evidence. Keep it informative and substantive: develop each section thoroughly with concrete evidence so every point adds new signal for the trader.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "overall_band",
+          "overall_score",
+          "confidence",
+          "narrative"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

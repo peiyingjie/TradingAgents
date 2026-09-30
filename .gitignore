@@ -221,3 +221,8 @@ __marimo__/
 # Enterprise env file (secrets) and generated run reports
 .env.enterprise
 reports/
+
+# Go build artifacts; reference fixtures remain tracked.
+/bin/
+/tradingagents.exe
+/tradingagents-go

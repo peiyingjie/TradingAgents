@@ -1,0 +1,125 @@
+{
+  "openai": [
+    "custom",
+    "gpt-5.4",
+    "gpt-5.4-mini",
+    "gpt-5.5",
+    "gpt-5.6",
+    "gpt-5.6-luna",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra",
+    "gpt-6-astra"
+  ],
+  "anthropic": [
+    "claude-fable-5",
+    "claude-fable-5-1",
+    "claude-haiku-4-5",
+    "claude-opus-4-7",
+    "claude-opus-4-8",
+    "claude-opus-5",
+    "claude-sonnet-5",
+    "custom"
+  ],
+  "google": [
+    "custom",
+    "gemini-3.1-flash-lite",
+    "gemini-3.1-pro-preview",
+    "gemini-3.5-flash",
+    "gemini-3.5-flash-lite",
+    "gemini-3.8-flash"
+  ],
+  "xai": [
+    "custom",
+    "grok-4.20-0309-non-reasoning",
+    "grok-4.20-0309-reasoning",
+    "grok-4.20-multi-agent-0309",
+    "grok-4.3",
+    "grok-4.5",
+    "grok-4.6",
+    "grok-build-0.1"
+  ],
+  "deepseek": [
+    "custom",
+    "deepseek-flash",
+    "deepseek-v4-flash",
+    "deepseek-v4-pro"
+  ],
+  "qwen": [
+    "custom",
+    "qwen3.6-max",
+    "qwen3.6-plus",
+    "qwen3.7-max",
+    "qwen3.7-plus",
+    "qwen3.8-flash",
+    "qwen3.8-max"
+  ],
+  "qwen-cn": [
+    "custom",
+    "qwen3.8-flash",
+    "qwen3.8-max"
+  ],
+  "glm": [
+    "custom",
+    "glm-4.5-air",
+    "glm-4.7",
+    "glm-5-turbo",
+    "glm-5.1",
+    "glm-5.2",
+    "glm-5.3",
+    "glm-5.3-flash"
+  ],
+  "glm-cn": [
+    "custom",
+    "glm-4.5-air",
+    "glm-4.7",
+    "glm-5-turbo",
+    "glm-5.1",
+    "glm-5.2",
+    "glm-5.3",
+    "glm-5.3-flash"
+  ],
+  "kimi": [
+    "custom",
+    "kimi-k2.6",
+    "kimi-k3"
+  ],
+  "minimax": [
+    "MiniMax-M2.5",
+    "MiniMax-M2.5-highspeed",
+    "MiniMax-M2.7",
+    "MiniMax-M2.7-highspeed",
+    "MiniMax-M3",
+    "custom"
+  ],
+  "minimax-cn": [
+    "MiniMax-M2.5",
+    "MiniMax-M2.5-highspeed",
+    "MiniMax-M2.7",
+    "MiniMax-M2.7-highspeed",
+    "MiniMax-M3",
+    "custom"
+  ],
+  "ollama": [
+    "custom",
+    "glm-4.7-flash:latest",
+    "gpt-oss:latest",
+    "qwen3:latest"
+  ],
+  "openai_compatible": [
+    "custom"
+  ],
+  "mistral": [
+    "custom",
+    "mistral-medium-2604",
+    "mistral-small-2603"
+  ],
+  "groq": [
+    "custom"
+  ],
+  "nvidia": [
+    "custom"
+  ],
+  "bedrock": [
+    "custom"
+  ]
+}

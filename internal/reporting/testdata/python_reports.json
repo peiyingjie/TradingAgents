@@ -1,0 +1,64 @@
+{
+  "state": {
+    "messages": [
+      {
+        "type": "human",
+        "content": "Proceed with your assigned analysis for this workflow. AAPL / Apple / USD The analysis date is 2026-08-14."
+      },
+      {
+        "type": "ai",
+        "content": "**Action**: Buy\n\n**Reasoning**: trader evidence\n\n**Entry Price**: 100.0\n\n**Stop Loss**: 90.0\n\n**Position Sizing**: 5%\n\nFINAL TRANSACTION PROPOSAL: **BUY**",
+        "tool_calls": []
+      }
+    ],
+    "company_of_interest": "AAPL",
+    "asset_type": "stock",
+    "instrument_context": "AAPL / Apple / USD",
+    "trade_date": "2026-08-14",
+    "past_context": "",
+    "portfolio_context": "",
+    "investment_debate_state": {
+      "judge_decision": "**Recommendation**: Buy\n\n**Rationale**: research evidence\n\n**Strategic Actions**: research actions",
+      "history": "\nBull Analyst: **Rating**: Buy\nEvidence 16\nBear Analyst: **Rating**: Buy\nEvidence 17",
+      "bear_history": "\nBear Analyst: **Rating**: Buy\nEvidence 17",
+      "bull_history": "\nBull Analyst: **Rating**: Buy\nEvidence 16",
+      "current_response": "**Recommendation**: Buy\n\n**Rationale**: research evidence\n\n**Strategic Actions**: research actions",
+      "count": 2
+    },
+    "risk_debate_state": {
+      "judge_decision": "**Rating**: Overweight\n\n**Executive Summary**: summary\n\n**Investment Thesis**: thesis\n\n**Price Target**: 120.0\n\n**Time Horizon**: 3 months",
+      "history": "\nAggressive Analyst: **Rating**: Buy\nEvidence 20\nConservative Analyst: **Rating**: Buy\nEvidence 21\nNeutral Analyst: **Rating**: Buy\nEvidence 22",
+      "aggressive_history": "\nAggressive Analyst: **Rating**: Buy\nEvidence 20",
+      "conservative_history": "\nConservative Analyst: **Rating**: Buy\nEvidence 21",
+      "neutral_history": "\nNeutral Analyst: **Rating**: Buy\nEvidence 22",
+      "latest_speaker": "Judge",
+      "current_aggressive_response": "Aggressive Analyst: **Rating**: Buy\nEvidence 20",
+      "current_conservative_response": "Conservative Analyst: **Rating**: Buy\nEvidence 21",
+      "current_neutral_response": "Neutral Analyst: **Rating**: Buy\nEvidence 22",
+      "count": 3
+    },
+    "market_report": "**Rating**: Buy\nEvidence 4",
+    "fundamentals_report": "**Rating**: Buy\nEvidence 15",
+    "sentiment_report": "**Overall Sentiment:** **Bullish** (Score: 7.0/10)\n**Confidence:** Medium\n\nsentiment evidence",
+    "news_report": "**Rating**: Buy\nEvidence 10",
+    "investment_plan": "**Recommendation**: Buy\n\n**Rationale**: research evidence\n\n**Strategic Actions**: research actions",
+    "trader_investment_plan": "**Action**: Buy\n\n**Reasoning**: trader evidence\n\n**Entry Price**: 100.0\n\n**Stop Loss**: 90.0\n\n**Position Sizing**: 5%\n\nFINAL TRANSACTION PROPOSAL: **BUY**",
+    "sender": "Trader",
+    "final_trade_decision": "**Rating**: Overweight\n\n**Executive Summary**: summary\n\n**Investment Thesis**: thesis\n\n**Price Target**: 120.0\n\n**Time Horizon**: 3 months"
+  },
+  "files": {
+    "complete_report.md": "# Trading Analysis Report: AAPL\n\nGenerated: 2026-08-14 12:34:56\n\n## I. Analyst Team Reports\n\n### Market Analyst\n**Rating**: Buy\nEvidence 4\n\n### Sentiment Analyst\n**Overall Sentiment:** **Bullish** (Score: 7.0/10)\n**Confidence:** Medium\n\nsentiment evidence\n\n### News Analyst\n**Rating**: Buy\nEvidence 10\n\n### Fundamentals Analyst\n**Rating**: Buy\nEvidence 15\n\n## II. Research Team Decision\n\n### Bull Researcher\n\nBull Analyst: **Rating**: Buy\nEvidence 16\n\n### Bear Researcher\n\nBear Analyst: **Rating**: Buy\nEvidence 17\n\n### Research Manager\n**Recommendation**: Buy\n\n**Rationale**: research evidence\n\n**Strategic Actions**: research actions\n\n## III. Trading Team Plan\n\n### Trader\n**Action**: Buy\n\n**Reasoning**: trader evidence\n\n**Entry Price**: 100.0\n\n**Stop Loss**: 90.0\n\n**Position Sizing**: 5%\n\nFINAL TRANSACTION PROPOSAL: **BUY**\n\n## IV. Risk Management Team Decision\n\n### Aggressive Analyst\n\nAggressive Analyst: **Rating**: Buy\nEvidence 20\n\n### Conservative Analyst\n\nConservative Analyst: **Rating**: Buy\nEvidence 21\n\n### Neutral Analyst\n\nNeutral Analyst: **Rating**: Buy\nEvidence 22\n\n## V. Portfolio Manager Decision\n\n### Portfolio Manager\n**Rating**: Overweight\n\n**Executive Summary**: summary\n\n**Investment Thesis**: thesis\n\n**Price Target**: 120.0\n\n**Time Horizon**: 3 months",
+    "1_analysts/fundamentals.md": "**Rating**: Buy\nEvidence 15",
+    "1_analysts/market.md": "**Rating**: Buy\nEvidence 4",
+    "1_analysts/news.md": "**Rating**: Buy\nEvidence 10",
+    "1_analysts/sentiment.md": "**Overall Sentiment:** **Bullish** (Score: 7.0/10)\n**Confidence:** Medium\n\nsentiment evidence",
+    "2_research/bear.md": "\nBear Analyst: **Rating**: Buy\nEvidence 17",
+    "2_research/bull.md": "\nBull Analyst: **Rating**: Buy\nEvidence 16",
+    "2_research/manager.md": "**Recommendation**: Buy\n\n**Rationale**: research evidence\n\n**Strategic Actions**: research actions",
+    "3_trading/trader.md": "**Action**: Buy\n\n**Reasoning**: trader evidence\n\n**Entry Price**: 100.0\n\n**Stop Loss**: 90.0\n\n**Position Sizing**: 5%\n\nFINAL TRANSACTION PROPOSAL: **BUY**",
+    "4_risk/aggressive.md": "\nAggressive Analyst: **Rating**: Buy\nEvidence 20",
+    "4_risk/conservative.md": "\nConservative Analyst: **Rating**: Buy\nEvidence 21",
+    "4_risk/neutral.md": "\nNeutral Analyst: **Rating**: Buy\nEvidence 22",
+    "5_portfolio/decision.md": "**Rating**: Overweight\n\n**Executive Summary**: summary\n\n**Investment Thesis**: thesis\n\n**Price Target**: 120.0\n\n**Time Horizon**: 3 months"
+  }
+}

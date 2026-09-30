@@ -1,0 +1,616 @@
+{
+  "timing": [
+    {
+      "kind": "start",
+      "key": "market",
+      "now": 100,
+      "summary": "Analyst wall time: pending",
+      "times": {}
+    },
+    {
+      "kind": "sync",
+      "state": {},
+      "now": 101,
+      "summary": "Analyst wall time: pending",
+      "times": {}
+    },
+    {
+      "kind": "sync",
+      "state": {
+        "market_report": "0"
+      },
+      "now": 110,
+      "summary": "Analyst wall time: Market 10.00s",
+      "times": {
+        "market": 10
+      }
+    },
+    {
+      "kind": "sync",
+      "state": {
+        "market_report": "0",
+        "news_report": "news"
+      },
+      "now": 112,
+      "summary": "Analyst wall time: Market 10.00s | News 2.00s",
+      "times": {
+        "market": 10,
+        "news": 2
+      }
+    },
+    {
+      "kind": "sync",
+      "state": {
+        "market_report": "0",
+        "news_report": "news"
+      },
+      "now": 120,
+      "summary": "Analyst wall time: Market 10.00s | News 2.00s",
+      "times": {
+        "market": 10,
+        "news": 2
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "~openai/alias",
+      "created": 1000
+    },
+    {
+      "id": "niche/new",
+      "created": 999
+    },
+    {
+      "id": "google/latest",
+      "name": "Latest",
+      "created": 2
+    },
+    {
+      "id": "openai/old",
+      "created": 1
+    }
+  ],
+  "choices": [
+    {
+      "Label": "Latest",
+      "Value": "google/latest"
+    },
+    {
+      "Label": "openai/old",
+      "Value": "openai/old"
+    },
+    {
+      "Label": "Custom model ID",
+      "Value": "custom"
+    }
+  ],
+  "selected": "google/latest",
+  "validation": [
+    {
+      "provider": "openai",
+      "model": "custom",
+      "valid": true
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.4",
+      "valid": true
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.4-mini",
+      "valid": true
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.5",
+      "valid": true
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.6",
+      "valid": true
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "valid": true
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.6-sol",
+      "valid": true
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.6-terra",
+      "valid": true
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-6-astra",
+      "valid": true
+    },
+    {
+      "provider": "openai",
+      "model": "unknown-future-model",
+      "valid": false
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-fable-5",
+      "valid": true
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-fable-5-1",
+      "valid": true
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5",
+      "valid": true
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-opus-4-7",
+      "valid": true
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-opus-4-8",
+      "valid": true
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-opus-5",
+      "valid": true
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-sonnet-5",
+      "valid": true
+    },
+    {
+      "provider": "anthropic",
+      "model": "custom",
+      "valid": true
+    },
+    {
+      "provider": "anthropic",
+      "model": "unknown-future-model",
+      "valid": false
+    },
+    {
+      "provider": "google",
+      "model": "custom",
+      "valid": true
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.1-flash-lite",
+      "valid": true
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.1-pro-preview",
+      "valid": true
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.5-flash",
+      "valid": true
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.5-flash-lite",
+      "valid": true
+    },
+    {
+      "provider": "google",
+      "model": "gemini-3.8-flash",
+      "valid": true
+    },
+    {
+      "provider": "google",
+      "model": "unknown-future-model",
+      "valid": false
+    },
+    {
+      "provider": "xai",
+      "model": "custom",
+      "valid": true
+    },
+    {
+      "provider": "xai",
+      "model": "grok-4.20-0309-non-reasoning",
+      "valid": true
+    },
+    {
+      "provider": "xai",
+      "model": "grok-4.20-0309-reasoning",
+      "valid": true
+    },
+    {
+      "provider": "xai",
+      "model": "grok-4.20-multi-agent-0309",
+      "valid": true
+    },
+    {
+      "provider": "xai",
+      "model": "grok-4.3",
+      "valid": true
+    },
+    {
+      "provider": "xai",
+      "model": "grok-4.5",
+      "valid": true
+    },
+    {
+      "provider": "xai",
+      "model": "grok-4.6",
+      "valid": true
+    },
+    {
+      "provider": "xai",
+      "model": "grok-build-0.1",
+      "valid": true
+    },
+    {
+      "provider": "xai",
+      "model": "unknown-future-model",
+      "valid": false
+    },
+    {
+      "provider": "deepseek",
+      "model": "custom",
+      "valid": true
+    },
+    {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "valid": true
+    },
+    {
+      "provider": "deepseek",
+      "model": "deepseek-v4-flash",
+      "valid": true
+    },
+    {
+      "provider": "deepseek",
+      "model": "deepseek-v4-pro",
+      "valid": true
+    },
+    {
+      "provider": "deepseek",
+      "model": "unknown-future-model",
+      "valid": false
+    },
+    {
+      "provider": "qwen",
+      "model": "custom",
+      "valid": true
+    },
+    {
+      "provider": "qwen",
+      "model": "qwen3.6-max",
+      "valid": true
+    },
+    {
+      "provider": "qwen",
+      "model": "qwen3.6-plus",
+      "valid": true
+    },
+    {
+      "provider": "qwen",
+      "model": "qwen3.7-max",
+      "valid": true
+    },
+    {
+      "provider": "qwen",
+      "model": "qwen3.7-plus",
+      "valid": true
+    },
+    {
+      "provider": "qwen",
+      "model": "qwen3.8-flash",
+      "valid": true
+    },
+    {
+      "provider": "qwen",
+      "model": "qwen3.8-max",
+      "valid": true
+    },
+    {
+      "provider": "qwen",
+      "model": "unknown-future-model",
+      "valid": false
+    },
+    {
+      "provider": "qwen-cn",
+      "model": "custom",
+      "valid": true
+    },
+    {
+      "provider": "qwen-cn",
+      "model": "qwen3.8-flash",
+      "valid": true
+    },
+    {
+      "provider": "qwen-cn",
+      "model": "qwen3.8-max",
+      "valid": true
+    },
+    {
+      "provider": "qwen-cn",
+      "model": "unknown-future-model",
+      "valid": false
+    },
+    {
+      "provider": "glm",
+      "model": "custom",
+      "valid": true
+    },
+    {
+      "provider": "glm",
+      "model": "glm-4.5-air",
+      "valid": true
+    },
+    {
+      "provider": "glm",
+      "model": "glm-4.7",
+      "valid": true
+    },
+    {
+      "provider": "glm",
+      "model": "glm-5-turbo",
+      "valid": true
+    },
+    {
+      "provider": "glm",
+      "model": "glm-5.1",
+      "valid": true
+    },
+    {
+      "provider": "glm",
+      "model": "glm-5.2",
+      "valid": true
+    },
+    {
+      "provider": "glm",
+      "model": "glm-5.3",
+      "valid": true
+    },
+    {
+      "provider": "glm",
+      "model": "glm-5.3-flash",
+      "valid": true
+    },
+    {
+      "provider": "glm",
+      "model": "unknown-future-model",
+      "valid": false
+    },
+    {
+      "provider": "glm-cn",
+      "model": "custom",
+      "valid": true
+    },
+    {
+      "provider": "glm-cn",
+      "model": "glm-4.5-air",
+      "valid": true
+    },
+    {
+      "provider": "glm-cn",
+      "model": "glm-4.7",
+      "valid": true
+    },
+    {
+      "provider": "glm-cn",
+      "model": "glm-5-turbo",
+      "valid": true
+    },
+    {
+      "provider": "glm-cn",
+      "model": "glm-5.1",
+      "valid": true
+    },
+    {
+      "provider": "glm-cn",
+      "model": "glm-5.2",
+      "valid": true
+    },
+    {
+      "provider": "glm-cn",
+      "model": "glm-5.3",
+      "valid": true
+    },
+    {
+      "provider": "glm-cn",
+      "model": "glm-5.3-flash",
+      "valid": true
+    },
+    {
+      "provider": "glm-cn",
+      "model": "unknown-future-model",
+      "valid": false
+    },
+    {
+      "provider": "kimi",
+      "model": "custom",
+      "valid": true
+    },
+    {
+      "provider": "kimi",
+      "model": "kimi-k2.6",
+      "valid": true
+    },
+    {
+      "provider": "kimi",
+      "model": "kimi-k3",
+      "valid": true
+    },
+    {
+      "provider": "kimi",
+      "model": "unknown-future-model",
+      "valid": true
+    },
+    {
+      "provider": "minimax",
+      "model": "MiniMax-M2.5",
+      "valid": true
+    },
+    {
+      "provider": "minimax",
+      "model": "MiniMax-M2.5-highspeed",
+      "valid": true
+    },
+    {
+      "provider": "minimax",
+      "model": "MiniMax-M2.7",
+      "valid": true
+    },
+    {
+      "provider": "minimax",
+      "model": "MiniMax-M2.7-highspeed",
+      "valid": true
+    },
+    {
+      "provider": "minimax",
+      "model": "MiniMax-M3",
+      "valid": true
+    },
+    {
+      "provider": "minimax",
+      "model": "custom",
+      "valid": true
+    },
+    {
+      "provider": "minimax",
+      "model": "unknown-future-model",
+      "valid": false
+    },
+    {
+      "provider": "minimax-cn",
+      "model": "MiniMax-M2.5",
+      "valid": true
+    },
+    {
+      "provider": "minimax-cn",
+      "model": "MiniMax-M2.5-highspeed",
+      "valid": true
+    },
+    {
+      "provider": "minimax-cn",
+      "model": "MiniMax-M2.7",
+      "valid": true
+    },
+    {
+      "provider": "minimax-cn",
+      "model": "MiniMax-M2.7-highspeed",
+      "valid": true
+    },
+    {
+      "provider": "minimax-cn",
+      "model": "MiniMax-M3",
+      "valid": true
+    },
+    {
+      "provider": "minimax-cn",
+      "model": "custom",
+      "valid": true
+    },
+    {
+      "provider": "minimax-cn",
+      "model": "unknown-future-model",
+      "valid": false
+    },
+    {
+      "provider": "ollama",
+      "model": "custom",
+      "valid": true
+    },
+    {
+      "provider": "ollama",
+      "model": "glm-4.7-flash:latest",
+      "valid": true
+    },
+    {
+      "provider": "ollama",
+      "model": "gpt-oss:latest",
+      "valid": true
+    },
+    {
+      "provider": "ollama",
+      "model": "qwen3:latest",
+      "valid": true
+    },
+    {
+      "provider": "ollama",
+      "model": "unknown-future-model",
+      "valid": true
+    },
+    {
+      "provider": "openai_compatible",
+      "model": "custom",
+      "valid": true
+    },
+    {
+      "provider": "openai_compatible",
+      "model": "unknown-future-model",
+      "valid": true
+    },
+    {
+      "provider": "mistral",
+      "model": "custom",
+      "valid": true
+    },
+    {
+      "provider": "mistral",
+      "model": "mistral-medium-2604",
+      "valid": true
+    },
+    {
+      "provider": "mistral",
+      "model": "mistral-small-2603",
+      "valid": true
+    },
+    {
+      "provider": "mistral",
+      "model": "unknown-future-model",
+      "valid": true
+    },
+    {
+      "provider": "groq",
+      "model": "custom",
+      "valid": true
+    },
+    {
+      "provider": "groq",
+      "model": "unknown-future-model",
+      "valid": true
+    },
+    {
+      "provider": "nvidia",
+      "model": "custom",
+      "valid": true
+    },
+    {
+      "provider": "nvidia",
+      "model": "unknown-future-model",
+      "valid": true
+    },
+    {
+      "provider": "bedrock",
+      "model": "custom",
+      "valid": true
+    },
+    {
+      "provider": "bedrock",
+      "model": "unknown-future-model",
+      "valid": true
+    }
+  ]
+}

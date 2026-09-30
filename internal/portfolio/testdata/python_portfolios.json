@@ -1,0 +1,124 @@
+[
+  {
+    "input": {},
+    "render": "Portfolio at the analysis date:\n- No current position in AAPL",
+    "fingerprint": "17efa16dd4ab"
+  },
+  {
+    "input": {
+      "cash": 1000,
+      "positions": []
+    },
+    "render": "Portfolio at the analysis date:\n- No current position in AAPL\n- Cash available: 1,000.00",
+    "fingerprint": "c8c784f016d9"
+  },
+  {
+    "input": {
+      "cash": 25000,
+      "currency": "USD",
+      "positions": [
+        {
+          "ticker": "AAPL",
+          "quantity": 120,
+          "average_price": 150
+        },
+        {
+          "ticker": "MSFT",
+          "quantity": 10
+        }
+      ]
+    },
+    "render": "Portfolio at the analysis date:\n- Current position in AAPL: 120 units, average price 150.00\n- Cash available: 25,000.00 USD\n- Other positions: MSFT 10",
+    "fingerprint": "0ec06fafcdfe"
+  },
+  {
+    "input": {
+      "positions": [
+        {
+          "ticker": "aapl",
+          "quantity": -1.2345,
+          "average_price": 1.2
+        }
+      ]
+    },
+    "render": "Portfolio at the analysis date:\n- Current position in AAPL: -1.234 units, average price 1.20",
+    "fingerprint": "b060599e1c05"
+  },
+  {
+    "input": {
+      "cash": 1e-08
+    },
+    "render": "Portfolio at the analysis date:\n- No current position in AAPL\n- Cash available: 0.00",
+    "fingerprint": "49a30267ddee"
+  },
+  {
+    "input": {
+      "cash": 1e-06
+    },
+    "render": "Portfolio at the analysis date:\n- No current position in AAPL\n- Cash available: 0.00",
+    "fingerprint": "4ce4de1fbbc1"
+  },
+  {
+    "input": {
+      "cash": 1e-05
+    },
+    "render": "Portfolio at the analysis date:\n- No current position in AAPL\n- Cash available: 0.00",
+    "fingerprint": "5f7f5e291973"
+  },
+  {
+    "input": {
+      "cash": 0.0001
+    },
+    "render": "Portfolio at the analysis date:\n- No current position in AAPL\n- Cash available: 0.00",
+    "fingerprint": "6ad1f48b8ff8"
+  },
+  {
+    "input": {
+      "cash": 1000000.0
+    },
+    "render": "Portfolio at the analysis date:\n- No current position in AAPL\n- Cash available: 1,000,000.00",
+    "fingerprint": "a951892d4346"
+  },
+  {
+    "input": {
+      "cash": 1000000000000000.0
+    },
+    "render": "Portfolio at the analysis date:\n- No current position in AAPL\n- Cash available: 1,000,000,000,000,000.00",
+    "fingerprint": "f2b98c46c873"
+  },
+  {
+    "input": {
+      "cash": 1e+16
+    },
+    "render": "Portfolio at the analysis date:\n- No current position in AAPL\n- Cash available: 10,000,000,000,000,000.00",
+    "fingerprint": "e730c72e5b4b"
+  },
+  {
+    "input": {
+      "cash": 1e+20
+    },
+    "render": "Portfolio at the analysis date:\n- No current position in AAPL\n- Cash available: 100,000,000,000,000,000,000.00",
+    "fingerprint": "66abf81a1a10"
+  },
+  {
+    "input": {
+      "cash": -0.0
+    },
+    "render": "Portfolio at the analysis date:\n- No current position in AAPL\n- Cash available: -0.00",
+    "fingerprint": "d43451ac6ec9"
+  },
+  {
+    "input": {
+      "cash": "1200.5",
+      "positions": [
+        {
+          "ticker": "AAPL",
+          "quantity": "2.5",
+          "average_price": "100"
+        }
+      ]
+    },
+    "render": "Portfolio at the analysis date:\n- Current position in AAPL: 2.5 units, average price 100.00\n- Cash available: 1,200.50",
+    "fingerprint": "7f120f1e56dc"
+  }
+]

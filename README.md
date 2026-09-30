@@ -29,6 +29,23 @@
 
 # TradingAgents: Multi-Agents LLM Financial Trading Framework
 
+## Go implementation
+
+The repository also contains a native Go implementation of the retained Python
+workflow. Build and run it with Go 1.25 or later; no Python runtime is required:
+
+```sh
+go build ./...
+go run ./cmd/tradingagents
+go run ./cmd/tradingagents backtest AAPL,MSFT --start 2025-01-01 --end 2025-02-01 --every 7
+```
+
+The Go CLI uses the same provider environment variables, `.env`, portfolio JSON,
+checkpoint flag and backtest inputs. See [Go migration and validation](docs/go-migration.md)
+for module mappings, offline parity coverage and Windows race-test setup.
+See the [migration audit](docs/go-migration-audit.md) for passing checks, resolved
+CLI gaps, native terminal interaction, and validation boundaries.
+
 ## News
 - [2026-09] **TradingAgents v0.5.0** released with point-in-time integrity across every dated path, SEC EDGAR fundamentals served as filed, backtesting over a ticker and date grid, portfolio-aware runs, and current model lineups across every provider. See [CHANGELOG.md](CHANGELOG.md) for the full list.
 - [2026-08] **TradingAgents v0.4.0** released with look-ahead / point-in-time fixes across FRED macro, social sentiment, and the decision-log memory; clearer decision signals; working CLI checkpoint resume; Trader price grounding; and the GPT-5.6 and GLM-5.3 models.

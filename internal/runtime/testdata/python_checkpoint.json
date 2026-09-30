@@ -1,0 +1,75 @@
+{
+  "state": {
+    "messages": [
+      {
+        "__ta_message__": "ai",
+        "data": {
+          "content": "",
+          "type": "ai",
+          "id": "persisted",
+          "name": null,
+          "additional_kwargs": {
+            "google_parts": [
+              {
+                "thought_signature": {
+                  "__ta_bytes__": "c2lnbmVk"
+                },
+                "function_call": {
+                  "name": "get_news",
+                  "args": {
+                    "ticker": "AAPL"
+                  }
+                }
+              }
+            ]
+          },
+          "response_metadata": {},
+          "tool_calls": [
+            {
+              "id": "call-1",
+              "name": "get_news",
+              "args": {
+                "ticker": "AAPL"
+              },
+              "type": "tool_call"
+            }
+          ],
+          "invalid_tool_calls": [],
+          "usage_metadata": null
+        }
+      }
+    ],
+    "company_of_interest": "AAPL",
+    "asset_type": "stock",
+    "instrument_context": "",
+    "trade_date": "2026-08-14",
+    "past_context": "",
+    "portfolio_context": "",
+    "investment_debate_state": {
+      "bull_history": "",
+      "bear_history": "",
+      "history": "",
+      "current_response": "",
+      "judge_decision": "",
+      "count": 0
+    },
+    "risk_debate_state": {
+      "aggressive_history": "",
+      "conservative_history": "",
+      "neutral_history": "",
+      "history": "",
+      "latest_speaker": "",
+      "current_aggressive_response": "",
+      "current_conservative_response": "",
+      "current_neutral_response": "",
+      "judge_decision": "",
+      "count": 0
+    },
+    "market_report": "",
+    "fundamentals_report": "",
+    "sentiment_report": "",
+    "news_report": ""
+  },
+  "next_node": "tools_news",
+  "step": 3
+}
