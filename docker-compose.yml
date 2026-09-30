@@ -1,4 +1,5 @@
 services:
+  # Both application services build the native Go CLI from Dockerfile.
   tradingagents:
     build: .
     env_file:

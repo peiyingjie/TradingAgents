@@ -1,28 +1,26 @@
-FROM python:3.12-slim AS builder
+FROM golang:1.25-bookworm AS builder
 
-ENV PYTHONDONTWRITEBYTECODE=1 \
-    PIP_DISABLE_PIP_VERSION_CHECK=1
-
-RUN python -m venv /opt/venv
-ENV PATH="/opt/venv/bin:$PATH"
+ENV CGO_ENABLED=0
 
 WORKDIR /build
-COPY . .
-RUN pip install --no-cache-dir .
+COPY go.mod go.sum ./
+RUN go mod download
+COPY cmd ./cmd
+COPY internal ./internal
+COPY pkg ./pkg
+RUN go build -trimpath -o /out/tradingagents ./cmd/tradingagents
 
-FROM python:3.12-slim
+FROM debian:bookworm-slim
 
-ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1
-
-COPY --from=builder /opt/venv /opt/venv
-ENV PATH="/opt/venv/bin:$PATH"
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends ca-certificates tzdata \
+ && rm -rf /var/lib/apt/lists/*
 
 RUN useradd --create-home appuser \
- && install -d -m 0755 -o appuser -g appuser /home/appuser/.tradingagents
+ && install -d -m 0755 -o appuser -g appuser /home/appuser/.tradingagents /home/appuser/app
+ENV HOME=/home/appuser
+COPY --from=builder /out/tradingagents /usr/local/bin/tradingagents
 USER appuser
 WORKDIR /home/appuser/app
-
-COPY --from=builder --chown=appuser:appuser /build .
 
 ENTRYPOINT ["tradingagents"]

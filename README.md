@@ -29,10 +29,10 @@
 
 # TradingAgents: Multi-Agents LLM Financial Trading Framework
 
-## Go implementation
+## Go runtime
 
-The repository also contains a native Go implementation of the retained Python
-workflow. Build and run it with Go 1.25 or later; no Python runtime is required:
+The default CLI, installation path, and Docker image use the native Go implementation.
+Build and run it with Go 1.25 or later; no Python runtime is required:
 
 ```sh
 go build ./...
@@ -128,32 +128,47 @@ git clone https://github.com/TauricResearch/TradingAgents.git
 cd TradingAgents
 ```
 
-Create a virtual environment in any of your favorite environment managers:
+Install Go 1.25 or later, then install the native CLI from the repository root:
 ```bash
-conda create -n tradingagents python=3.12
-conda activate tradingagents
+go install ./cmd/tradingagents
 ```
 
-Or with [uv](https://docs.astral.sh/uv/):
+Add Go's binary directory (`go env GOBIN`, or `go env GOPATH` plus `/bin` when
+GOBIN is empty) to your PATH. To run without changing PATH:
+
 ```bash
-uv venv --python 3.12
-source .venv/bin/activate
+go run ./cmd/tradingagents --help
+go run ./cmd/tradingagents
 ```
 
-Install the package and its dependencies (`uv pip install .` with uv):
-```bash
-pip install .
-```
+You can also build a standalone executable with
+`go build -o bin/tradingagents ./cmd/tradingagents` (use
+`bin/tradingagents.exe` on Windows). Run it with `./bin/tradingagents` or
+`.\bin\tradingagents.exe`. The executable includes its prompts and model metadata.
+
+If upgrading from a Python installation, reinstall that package with `pip install .`
+in its original environment to replace its old `tradingagents` launcher with
+`tradingagents-python`, or uninstall it with `pip uninstall tradingagents` if no
+longer needed. Then install the Go command above. Use `command -v tradingagents`
+(PowerShell: `Get-Command tradingagents`) to check which executable your shell resolves.
 
 ### Docker
 
 Alternatively, run with Docker:
 ```bash
 cp .env.example .env  # add your API keys
+docker compose build
 docker compose run --rm tradingagents
 ```
 
 After updating the repository, rebuild the image with `docker compose build`.
+The image builds the Go executable and runs it as a non-root user; it contains no
+Python runtime. The existing `tradingagents_data` volume continues to store logs,
+cache, checkpoints, memory, and preferences at `/home/appuser/.tradingagents`.
+Pass CLI arguments after the service name, for example
+`docker compose run --rm tradingagents backtest --help`.
+Source files are not included in the runtime image; mount portfolio JSON files
+explicitly when using `--portfolio`.
 
 For local models with Ollama:
 ```bash
@@ -187,11 +202,11 @@ export ALPHA_VANTAGE_API_KEY=...   # Alpha Vantage
 
 For Azure OpenAI, copy `.env.enterprise.example` to `.env.enterprise` and fill in your credentials.
 
-For AWS Bedrock, install the extra with `pip install ".[bedrock]"`, set `llm_provider: "bedrock"`, configure AWS credentials (environment variables, `~/.aws/credentials`, or an IAM role) and `AWS_DEFAULT_REGION`, and use a Bedrock model ID, e.g. `us.anthropic.claude-opus-4-8-v1:0`.
+For AWS Bedrock, set `TRADINGAGENTS_LLM_PROVIDER=bedrock`, configure AWS credentials (environment variables, `~/.aws/credentials`, or an IAM role) and `AWS_DEFAULT_REGION`, and use a Bedrock model ID, e.g. `us.anthropic.claude-opus-4-8-v1:0`. Bedrock support is built into the Go executable.
 
-For local models, configure Ollama with `llm_provider: "ollama"`. The default endpoint is `http://localhost:11434/v1`; set `OLLAMA_BASE_URL` to point at a remote `ollama-serve`. Pull models with `ollama pull <name>`, and pick "Custom model ID" in the CLI for any model not listed by default.
+For local models, set `TRADINGAGENTS_LLM_PROVIDER=ollama`. The default endpoint is `http://localhost:11434/v1`; set `OLLAMA_BASE_URL` to point at a remote `ollama-serve`. Pull models with `ollama pull <name>`, and pick "Custom model ID" in the CLI for any model not listed by default.
 
-For any other OpenAI-compatible server (vLLM, LM Studio, llama.cpp, or a custom relay), use `llm_provider: "openai_compatible"` and set the endpoint via `backend_url` (or `TRADINGAGENTS_LLM_BACKEND_URL`), e.g. `http://localhost:8000/v1` for vLLM or `http://localhost:1234/v1` for LM Studio. The model is whatever your server serves. No key is needed for local servers; set `OPENAI_COMPATIBLE_API_KEY` when the endpoint requires one.
+For any other OpenAI-compatible server (vLLM, LM Studio, llama.cpp, or a custom relay), set `TRADINGAGENTS_LLM_PROVIDER=openai_compatible` and set the endpoint via `TRADINGAGENTS_LLM_BACKEND_URL`, e.g. `http://localhost:8000/v1` for vLLM or `http://localhost:1234/v1` for LM Studio. The model is whatever your server serves. No key is needed for local servers; set `OPENAI_COMPATIBLE_API_KEY` when the endpoint requires one.
 
 Alternatively, copy `.env.example` to `.env` and fill in your keys:
 ```bash
@@ -202,8 +217,8 @@ cp .env.example .env
 
 Launch the interactive CLI:
 ```bash
-tradingagents          # installed command
-python -m cli.main     # alternative: run directly from source
+tradingagents                  # installed Go command
+go run ./cmd/tradingagents      # alternative: run directly from source
 ```
 You will see a screen where you can select your desired tickers, analysis date, LLM provider, research depth, and more. Your previous run's answers come back as the defaults, so pressing Enter accepts them. The `TRADINGAGENTS_*` variables in `.env` still skip their step entirely.
 
@@ -216,6 +231,8 @@ TradingAgents works with any market Yahoo Finance covers, using the exchange-suf
 - India: `RELIANCE.NS`, `.BO` · Canada: `.TO` · Australia: `.AX`
 - China A-shares: Shanghai `.SS`, Shenzhen `.SZ` (e.g. `600519.SS` for Kweichow Moutai)
 - Crypto: `BTC-USD`, `ETH-USD`
+
+The screenshots below show the retained Python interface; the Go CLI uses its own native terminal layout.
 
 <p align="center">
   <img src="assets/cli/cli_init.png" width="100%" style="display: inline-block; margin: 0 2%;">
@@ -232,6 +249,22 @@ An interface will appear showing results as they load, letting you track the age
 </p>
 
 ## TradingAgents Package
+
+This section documents the retained Python library and reference implementation.
+The default Go CLI is installed as described above; the Go workflow lives under
+`internal/` and is not a drop-in Python library API.
+
+For Python library use or parity-reference development, create a Python 3.10+
+virtual environment and install the reference package:
+
+```bash
+pip install .
+tradingagents-python --help
+# Or, from the repository root:
+python -m cli.main --help
+```
+
+The Python package does not install the default `tradingagents` command.
 
 ### Implementation Details
 

@@ -4,6 +4,13 @@ Go 入口为 `cmd/tradingagents`，模块名为 `tradingagents`，要求 Go 1.25
 原 Python 源码保留，用作行为基准。Go 程序通过 HTTP 调用原有供应商；不启动
 Python 子进程，也不需要 Python SDK、LangGraph 或 LangChain。
 
+默认安装与容器入口现已切换为 Go：在仓库根目录执行 `go install ./cmd/tradingagents`，
+将 Go 的安装目录加入 PATH 后使用 `tradingagents`。Docker 使用 Go 多阶段构建，运行镜像
+不包含 Python，继续使用 `/home/appuser/.tradingagents` 数据卷。
+保留的 Python 包通过 `pip install .` 安装后只提供 `tradingagents-python` 命令；
+`python -m cli.main` 仍可用于基准开发。旧环境需重新安装或卸载 Python 包以移除原同名入口，
+再安装 Go CLI，并检查 PATH 中实际命中的可执行文件。
+
 当前验收结果见 [迁移审计记录](go-migration-audit.md)。已补齐动态模型列表、公告、耗时统计、
 模型警告和终端交互。可用 `./scripts/test-go-offline.ps1` 使用假凭据复跑全量检查并生成本地审计日志。
 

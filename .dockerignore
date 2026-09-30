@@ -1,6 +1,7 @@
 .git
 .venv
 .env
+.env.*
 .claude
 .idea
 .vscode
@@ -13,3 +14,15 @@ results
 eval_results
 Dockerfile
 docker-compose.yml
+bin
+reports
+.pytest_cache
+.ruff_cache
+cli
+tradingagents
+tests
+scripts
+assets
+docs
+*.py
+*.toml

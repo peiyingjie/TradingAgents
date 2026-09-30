@@ -1,4 +1,4 @@
-name: Go
+name: Go CI
 
 on:
   push:
@@ -20,3 +20,30 @@ jobs:
       - run: go vet ./...
       - run: go run ./cmd/tradingagents --help
       - run: go run ./cmd/tradingagents backtest --help
+      - name: Install and smoke-test the default command
+        run: |
+          go install ./cmd/tradingagents
+          "$(go env GOPATH)/bin/tradingagents" --help
+          "$(go env GOPATH)/bin/tradingagents" backtest --help
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Go container and verify Compose profiles
+        run: |
+          cp .env.example .env
+          docker compose --profile ollama config --quiet
+          docker build -t tradingagents:smoke .
+      - name: Verify container entrypoint and persistent data permissions
+        run: |
+          docker run --rm tradingagents:smoke --help
+          docker run --rm tradingagents:smoke backtest --help
+          docker run --rm --entrypoint sh -v tradingagents-smoke:/home/appuser/.tradingagents tradingagents:smoke -ec '
+            test "$(id -u)" -ne 0
+            test -z "$(command -v python || true)"
+            test -z "$(command -v python3 || true)"
+            test -r /etc/ssl/certs/ca-certificates.crt
+            test -r /usr/share/zoneinfo/America/Chicago
+            touch "$HOME/.tradingagents/write-check"
+          '

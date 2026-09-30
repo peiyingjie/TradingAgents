@@ -1,4 +1,4 @@
-name: CI
+name: Python reference
 
 on:
   push:
@@ -30,7 +30,7 @@ jobs:
         run: pytest -q
 
   smoke-install:
-    name: clean-install smoke
+    name: Python reference clean-install smoke
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -44,6 +44,11 @@ jobs:
           # Catches undeclared runtime deps (e.g. #994 python-dotenv): a bare
           # install must import the package and the CLI module.
           python -c "import tradingagents, cli.main; print('clean-install import OK')"
+          tradingagents-python --help
+          if command -v tradingagents; then
+            echo "Python package must not install the default Go command"
+            exit 1
+          fi
 
   lint:
     name: ruff (strict, full repo)

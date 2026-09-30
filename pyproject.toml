@@ -38,7 +38,8 @@ bedrock = [
 ]
 
 [project.scripts]
-tradingagents = "cli.main:app"
+# Retained Python reference CLI; the default tradingagents command is built by Go.
+tradingagents-python = "cli.main:app"
 
 [tool.setuptools.packages.find]
 include = ["tradingagents*", "cli*"]
